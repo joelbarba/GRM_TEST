@@ -1,0 +1,472 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"background-c",
+				"background-color"
+			],
+			[
+				"border",
+				"border-style"
+			],
+			[
+				"has",
+				"hasOwnProperty"
+			],
+			[
+				"poin",
+				"point_info"
+			],
+			[
+				"selec",
+				"select_point"
+			],
+			[
+				"set",
+				"setIcon"
+			],
+			[
+				"track",
+				"track_index"
+			],
+			[
+				"line",
+				"line_num"
+			],
+			[
+				"from",
+				"from_route"
+			],
+			[
+				"marke",
+				"marker_index"
+			],
+			[
+				"sto",
+				"stop_markers"
+			],
+			[
+				"mar",
+				"marker_index"
+			],
+			[
+				"track_po",
+				"track_point"
+			],
+			[
+				"w",
+				"InfoWindow"
+			],
+			[
+				"all",
+				"all_markers"
+			],
+			[
+				"menu",
+				"menu-custom-item"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/client/main.html",
+			"settings":
+			{
+				"buffer_size": 5654,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/client/main.js",
+			"settings":
+			{
+				"buffer_size": 3754,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/GRM_TEST",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/GRM_TEST/app",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/GRM_TEST/app/client",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/GRM_TEST/app/lib"
+	],
+	"file_history":
+	[
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/dub_bus.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/shared_funs.js",
+		"/home/barba/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/media/DISK5/DOCUMENTS/BBDD/historia facebook - 9.12.2010",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/euro2016_table_gen.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/EURO2016/EURO2016/DB/user.json",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/EURO2016/EURO2016/DB/backup.json",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/app.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/ENG_TEST/Irregular_verbs_test_jquery.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/euro2016.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/map_polylines.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/stop_markers.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/dub_bus.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/ENG_TEST/Irregular_verbs_test.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/data_structure.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/server/startup.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/bus_tracks_data_ini.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/templates/menu_left.js",
+		"/media/DISK5/DOCUMENTS/BBDD/tmp.txt",
+		"/home/barba/Desktop/EMIGRATION_INFO/plan.txt",
+		"/home/barba/Desktop/ENGLISH RIPS/Formal Reports & Proposals.url",
+		"/media/DISK5/DOCUMENTS/BBDD/ctbl.txt",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/bus_stops_data_ini.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/collections.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/settings.json",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/templates/menu_left.html",
+		"/home/barba/Desktop/java_apunts.txt",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/CAT_PELIS/WebApp_AJS/data/insertar_peli.php",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/CAT_PELIS/DB/model_db.sql",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/HtmlVersion/Dublin_BUS_tracker.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/Dublin_BUS_tracker.html",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/stop_markers.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/data_structure.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/data_structure.json",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/data_structure.txt",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/templates/menu.js",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib/menu.js",
+		"/home/barba/.config/sublime-text-3/Packages/User/bh_core.sublime-settings",
+		"/home/barba/.config/sublime-text-3/Packages/Colorsublime-Plugin-master/Monokai.tmTheme",
+		"/home/barba/.config/sublime-text-3/Packages/User/Colorsublime.sublime-settings",
+		"/home/barba/.config/sublime-text-3/Packages/Colorsublime/Colorsublime.sublime-settings",
+		"/home/barba/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client/app.js"
+	],
+	"find":
+	{
+		"height": 30.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/server,/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client,/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib,/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/public",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/server",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/lib",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus/client",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus,-.git",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/DUB_BUS/MeteorVersion/dub_bus",
+			"/media/DISK5/PROGRAMES_PROPIS/APLICACIONS_WEB/CAT_PELIS/WebApp_AJS"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"—",
+			"8942251",
+			"—",
+			"89 422 51",
+			"8942251",
+			"08942251",
+			"mire",
+			";\n",
+			"if (level == 2) {\n            var prevMatch = numMatch - 1;\n          }\n          ",
+			"]]);\n",
+			"teams",
+			"13",
+			"2",
+			"27",
+			"q2",
+			">\");\n",
+			">\n",
+			"team-col",
+			"line-col",
+			">\n",
+			"1",
+			"        <",
+			"efectiu",
+			",",
+			"IE",
+			"Beers",
+			"Darios",
+			"5",
+			"-\n",
+			"select_stop_point",
+			"get_from_track_index_by_id",
+			"get_to_track_index_by_id",
+			"select_point",
+			"delete_point",
+			"get_track_by_id",
+			"set_track_markers",
+			"$set",
+			"app.stop_markers",
+			"app.map_polylines",
+			"map_polylines",
+			"shared_funs",
+			"app.map_polylines",
+			"track.",
+			"this",
+			"open_stop_infowindow",
+			"all-bus-stops",
+			"Ok, the library is loaded",
+			"bus_tracks",
+			"move_point",
+			"line_num",
+			"abcd",
+			"pat = abcd",
+			"pat = wxyz",
+			"wxyz",
+			"get_track_by_num",
+			"get_track_by_id",
+			"data_replication2",
+			"nav",
+			"loadLlistaPelis",
+			"http",
+			"llista_pelis.html",
+			"CTRL_llista_pelis",
+			"marker_list",
+			"show_route",
+			"app",
+			"open_stop_infowindow",
+			"menu",
+			"stop_markers",
+			"all_markers",
+			"this.",
+			"this.num",
+			"pos",
+			";\n",
+			"all_markers",
+			"temp_mark_info",
+			"stop-marler-info-template",
+			"open_stop_infowindow",
+			"line_num",
+			"toogle_stop_show",
+			"stop_marker",
+			"toogle_stop_show",
+			"show_route",
+			"console",
+			"bus_tracks",
+			"// helper function to return all tracks and build the left menu\nTemplate.menu_left.helpers({\n    tracks : function() {\n        return bus_tracks.find();\n    }\n});\n",
+			">\n",
+			"well",
+			"Bracket Curly",
+			"color",
+			"curl",
+			"find"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"team_col",
+			"line_col",
+			"lines",
+			"tracks"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/client/main.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5654,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 1,
+					"file": "app/client/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3754,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 30.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "GRM_TEST.sublime-project",
+	"replace":
+	{
+		"height": 56.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 1,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 232.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

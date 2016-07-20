@@ -37,82 +37,53 @@
           <button class="btn btn-warning" ng-click="ex1_1.answer()">Answers</button>
           <button class="btn btn-success" ng-click="ex1_1.correct()">Correct</button>
         </div>
-
-        ex1_1.questions={{ex1_1.questions}}
         
         <!-- Exercice 1.2 -->
         <div id="ex1-2">
           <p class="ex-tit"><span class="ex-tit-num">1.2. </span>Complete the conversations.</p>
           <p>1<br/>
-             <span class="dial-A">A: </span>I saw Brian a few days ago.<br/>
-             <span class="dial-B">B: </span>Oh, did you? <input ng-model="ex1_2.questions[0].ua"/> these days? <span class="dial-tip">(what / he / do)</span> 
+              <span class="dial-A">A: </span>I saw Brian a few days ago.<br/>
+              <span class="dial-B">B: </span>Oh, did you? <input ng-model="ex1_2.questions[0].ua"/> these days? <span class="dial-tip">(what / he / do)</span> 
+              <resultat valor-res="ex1_2.questions[0].correct"></resultat>
+              <span ng-show="ex1_2.showAnsw">{{ex1_2.questions[0].ca}}</span>
+              <br/>
 
-                <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[0].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[0].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
-                <span ng-show="ex1_2.showAnsw">{{ex1_2.questions[0].ca}}</span>
-               <br/>
-
-             <span class="dial-A">A: </span>He's at university.<br/>
-             <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[1].ua"/> ? <span class="dial-tip">(what / he / study)</span>
-             
-                <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[1].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[1].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
+              <span class="dial-A">A: </span>He's at university.<br/>
+              <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[1].ua"/> ? <span class="dial-tip">(what / he / study)</span>
+              <resultat valor-res="ex1_2.questions[1].correct"></resultat>
                <br/>
 
              <span class="dial-A">A: </span>Psychology.<br/>
              <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[2].ua"/> it? <span class="dial-tip">(he / enjoy)</span>
-             
-                <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[2].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[2].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
+             <resultat valor-res="ex1_2.questions[2].correct"></resultat>
                <br/>
 
              <span class="dial-A">A: </span>Yes, he says it's a very good course.<br/>
           </p>
           <p>2<br/>
-             <span class="dial-A">A: </span>Hi, Nicola. How <input ng-model="ex1_2.questions[3].ua"/> ? <span class="dial-tip">(your new job / go)</span>
+            <span class="dial-A">A: </span>Hi, Nicola. How <input ng-model="ex1_2.questions[3].ua"/> ? <span class="dial-tip">(your new job / go)</span>
+            <resultat valor-res="ex1_2.questions[3].correct"></resultat>
+            <br/>
 
-                <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[3].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[3].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
-               <br/>
+            <span class="dial-B">B: </span>Not bad. It wasn't so good at first, but <input ng-model="ex1_2.questions[4].ua"/> better now. <span class="dial-tip">(it / get)</span>
+            <resultat valor-res="ex1_2.questions[4].correct"></resultat>
+            <br/>
 
-             <span class="dial-B">B: </span>Not bad. It wasn't so good at first, but <input ng-model="ex1_2.questions[4].ua"/> better now. <span class="dial-tip">(it / get)</span>
+            <span class="dial-A">A: </span>What about Daniel? Is he OK?<br/>
+            <span class="dial-B">B: </span>Yes, but <input ng-model="ex1_2.questions[5].ua"/> his work right now. <span class="dial-tip">(he / not / enjoy)</span>
+            <resultat valor-res="ex1_2.questions[5].correct"></resultat>
+            <br/>
 
-                <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[4].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[4].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
-               <br/>
-
-             <span class="dial-A">A: </span>What about Daniel? Is he OK?<br/>
-             <span class="dial-B">B: </span>Yes, but <input ng-model="ex1_2.questions[5].ua"/> his work right now. <span class="dial-tip">(he / not / enjoy)</span>
-
-                <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[5].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[5].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
-               <br/>
-
-             <span class="dial-B">   </span>He's been in the same job for a long time and <input ng-model="ex1_2.questions[6].ua"/> to get bored with it. <span class="dial-tip">(he / begin)</span>
-               <span ng-show="ex1_2.showCorr">
-                  <span ng-show="ex1_2.questions[6].correct"  class="glyphicon glyphicon-ok"></span>
-                  <span ng-show="!ex1_2.questions[6].correct" class="glyphicon glyphicon-remove"></span>
-                </span>
-               <br/>
+            <span class="dial-B">   </span>He's been in the same job for a long time and <input ng-model="ex1_2.questions[6].ua"/> to get bored with it. <span class="dial-tip">(he / begin)</span>
+            <resultat valor-res="ex1_2.questions[6].correct"></resultat>
+            <br/>
 
           </p>
           <button class="btn btn-warning" ng-click="ex1_2.answer()">Answers</button>
           <button class="btn btn-success" ng-click="ex1_2.correct()">Correct</button>
         </div>
 
-        <resultat></resultat>
+        
 
       </div>
 

@@ -112,11 +112,21 @@ ngApp.controller('MainCtrl', ['$scope',
 
 
 ngApp.directive('resultat', function() {
+  var varTemplate = '';
+  varTemplate += '<span ng-show="true">';
+  varTemplate += '  <span ng-show="{{valorRes}}"  class="glyphicon glyphicon-ok"></span>';
+  varTemplate += '  <span ng-show="{{!valorRes}}" class="glyphicon glyphicon-remove">';
+  varTemplate += '</span> </span>';
+
   return {
       restrict : 'AE',
-      template : '<span ng-show="true"> <span ng-show="correct"  class="glyphicon glyphicon-ok"></span> <span ng-show="!correct" class="glyphicon glyphicon-remove"></span> </span>',
-      link     : function () { 
-        console.log('this is the link fun');
+      replace  : true,
+      template : varTemplate,
+      scope    : {
+        valorRes : '='
+      },
+      link     : function($scope, element, attr) { 
+        console.log('this is the link fun', $scope.valorRes);
       },
   };
 });
