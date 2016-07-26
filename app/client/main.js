@@ -113,20 +113,33 @@ ngApp.controller('MainCtrl', ['$scope',
 
 ngApp.directive('resultat', function() {
   var varTemplate = '';
-  varTemplate += '<span ng-show="true">';
-  varTemplate += '  <span ng-show="{{valorRes}}"  class="glyphicon glyphicon-ok"></span>';
-  varTemplate += '  <span ng-show="{{!valorRes}}" class="glyphicon glyphicon-remove">';
-  varTemplate += '</span> </span>';
+  varTemplate += '<span>  {{qObj.questions[qNum].correct}}';
+  varTemplate += '  <span ng-show="showCorr">';
+  varTemplate += '    <span ng-show="{{qObj.questions[qNum].correct}}">fsss</span>';
+  varTemplate += '    <span ng-show="{{qObj.questions[qNum].correct}}"  class="glyphicon glyphicon-ok"></span>';
+  varTemplate += '    <span ng-show="{{!qObj.questions[qNum].correct}}" class="glyphicon glyphicon-remove"></span>';
+  varTemplate += '  </span>';
+  varTemplate += '  <span ng-show="showAnsw">xxxxxxxxxxxxxx</span>';
+  varTemplate += '</span>';
 
   return {
       restrict : 'AE',
       replace  : true,
       template : varTemplate,
       scope    : {
-        valorRes : '='
+        qObj : '=',
+        qOb  : '=',
+        qNum : '='
       },
       link     : function($scope, element, attr) { 
-        console.log('this is the link fun', $scope.valorRes);
+
+        $scope.showCorr = true;
+        $scope.showAnsw = true;
+        $scope.correct  = $scope.qObj.questions[$scope.qNum].correct;
+        // $scope.canswer  = $scope.qObj.questions[$scope.qNum].ca;
+        $scope.canswer  = $scope.qOb;
+
+        // console.log('this is the link fun', $scope.qObj, $scope.qNum);
       },
   };
 });
