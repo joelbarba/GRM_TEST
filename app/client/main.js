@@ -3,8 +3,8 @@ import angularMeteor from 'angular-meteor';
  
 var ngApp = angular.module('mainModule', [angularMeteor])
 
-ngApp.controller('MainCtrl', ['$scope', 
-  function($scope) {
+ngApp.controller('MainCtrl', ['$scope', '$rootScope',
+  function($scope, $rootScope) {
     
     // $scope.helpers({
     //   tasks() {
@@ -41,10 +41,12 @@ ngApp.controller('MainCtrl', ['$scope',
         q.correct = (q.id == q.ua);
       });
       $scope.ex1_1.showCorr = true;
+      $rootScope.$emit('show_question_result', '1_1', $scope.ex1_1.showCorr);
 
     };
     $scope.ex1_1.answer = function() {
       $scope.ex1_1.showAnsw = true;
+      $rootScope.$emit('show_question_answer', '1_1', $scope.ex1_1.showCorr);
     };
 
 
@@ -78,10 +80,12 @@ ngApp.controller('MainCtrl', ['$scope',
       });          
 
       $scope.ex1_2.showCorr = true;
+      $rootScope.$emit('show_question_result', '1_2', $scope.ex1_2.showCorr);
 
     };
     $scope.ex1_2.answer = function() {
-      $scope.ex1_2.showAnsw = true;
+      $scope.ex1_2.showAnsw = !$scope.ex1_2.showAnsw;
+      $rootScope.$emit('show_question_answer', '1_2', $scope.ex1_2.showAnsw);
     };
 
 
@@ -111,15 +115,14 @@ ngApp.controller('MainCtrl', ['$scope',
 );
 
 
-ngApp.directive('resultat', function() {
+ngApp.directive('resultat', ['$rootScope', function($rootScope) {
   var varTemplate = '';
-  varTemplate += '<span>  {{qObj.questions[qNum].correct}}';
+  varTemplate += '<span>';
   varTemplate += '  <span ng-show="showCorr">';
-  varTemplate += '    <span ng-show="{{qObj.questions[qNum].correct}}">fsss</span>';
-  varTemplate += '    <span ng-show="{{qObj.questions[qNum].correct}}"  class="glyphicon glyphicon-ok"></span>';
-  varTemplate += '    <span ng-show="{{!qObj.questions[qNum].correct}}" class="glyphicon glyphicon-remove"></span>';
+  varTemplate += '    <span ng-show="correct"  class="glyphicon glyphicon-ok"></span>';
+  varTemplate += '    <span ng-show="!correct" class="glyphicon glyphicon-remove"></span>';
   varTemplate += '  </span>';
-  varTemplate += '  <span ng-show="showAnsw">xxxxxxxxxxxxxx</span>';
+  varTemplate += '  <span ng-show="showAnsw">{{canswer}}</span>';
   varTemplate += '</span>';
 
   return {
@@ -127,19 +130,29 @@ ngApp.directive('resultat', function() {
       replace  : true,
       template : varTemplate,
       scope    : {
-        qObj : '=',
-        qOb  : '=',
-        qNum : '='
+        ex : '@',
+        q  : '='
       },
       link     : function($scope, element, attr) { 
 
-        $scope.showCorr = true;
-        $scope.showAnsw = true;
-        $scope.correct  = $scope.qObj.questions[$scope.qNum].correct;
-        // $scope.canswer  = $scope.qObj.questions[$scope.qNum].ca;
-        $scope.canswer  = $scope.qOb;
+        $scope.showCorr = false;
+        $scope.showAnsw = false;
+        $scope.canswer  = $scope.q.ca;
 
-        // console.log('this is the link fun', $scope.qObj, $scope.qNum);
+        // Listen the event to show the result
+        $rootScope.$on('show_question_result', function(event, ex, resp) {
+          if (ex === $scope.ex) {
+            $scope.showCorr = resp;
+            $scope.correct  = !!$scope.q.correct;
+          }
+        });
+
+        // Listen the event to show the correct answer
+        $rootScope.$on('show_question_answer', function(event, ex, resp) {
+          if (ex === $scope.ex) {
+            $scope.showAnsw = resp;
+          }
+        });
       },
   };
-});
+}]);

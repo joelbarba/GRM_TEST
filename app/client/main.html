@@ -14,78 +14,104 @@
         <h3>Unit1</h3>
 
         <!-- Exercice 1.1 -->
-        <div id="ex1-1">
-          <p class="ex-tit"><span class="ex-tit-num">1.1. </span>The sentences on the right follow those on the left. Which sentence goes with which?</p>
-          <table>
-            <tr ng-repeat="q in ex1_1.questions">
-              <td>{{$index}} {{q.text}}</td> 
-              <td>
-                <select ng-model="q.ua">
-                  <option ng-repeat="answ in ex1_1.allAnswers" value="{{answ.id}}">{{answ.ca}}</option>
-                </select>
-              </td>
-              <td ng-show="ex1_1.showCorr">
-                <span ng-show="q.correct"  class="glyphicon glyphicon-ok"></span>
-                <span ng-show="!q.correct" class="glyphicon glyphicon-remove"></span>
-              </td>
-              <td ng-show="ex1_1.showAnsw">
-                {{q.ca}}
-              </td>
-            </tr>
+        <div class="row" id="ex1-1">
+          <hr/>
+          <div class="col-xs-12">
+            
+            <div class="row">
+              <div class="col-xs-8">
+                <p class="ex-tit"><span class="ex-tit-num">1.1. </span>The sentences on the right follow those on the left. Which sentence goes with which?</p>
+              </div>
+              <div class="col-xs-4 text-right">
+                <button class="btn btn-success" ng-click="ex1_1.correct()">Correct</button>              
+                <button class="btn btn-warning" ng-click="ex1_1.answer()">Answers</button>
+              </div>
+            </div>
 
-          </table>
-          <button class="btn btn-warning" ng-click="ex1_1.answer()">Answers</button>
-          <button class="btn btn-success" ng-click="ex1_1.correct()">Correct</button>
+            <div class="row">
+              <div class="col-xs-12">
+                <table>
+                  <tr ng-repeat="q in ex1_1.questions">
+                    <td>{{$index}} {{q.text}}</td> 
+                    <td>
+                      <select ng-model="q.ua">
+                        <option ng-repeat="answ in ex1_1.allAnswers" value="{{answ.id}}">{{answ.ca}}</option>
+                      </select>
+                    </td>
+                    <td> <resultat ex="1_1" q="q"></resultat> </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+              
+          </div>
         </div>
         
         <!-- Exercice 1.2 -->
-        <div id="ex1-2">
-          <p class="ex-tit"><span class="ex-tit-num">1.2. </span>Complete the conversations.</p>
-          
-          <p>1<br/>
-          
-            <span class="dial-A">A: </span>I saw Brian a few days ago.<br/>
-            <span class="dial-B">B: </span>Oh, did you? <input ng-model="ex1_2.questions[0].ua"/> these days? <span class="dial-tip">(what / he / do)</span> 
-            <resultat q-obj="ex1_2" q-num="0" q-ob="ex1_2.questions[0].correct"></resultat>
-            <br/>
+        <div class="row" id="ex1-2">
+          <hr/>
+          <div class="col-xs-12">
 
-            <span class="dial-A">A: </span>He's at university.<br/>
-            <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[1].ua"/> ? <span class="dial-tip">(what / he / study)</span>
-            <resultat q-obj="ex1_2" q-num="1"></resultat>
-            <br/>
+            <div class="row">
+              <div class="col-xs-8">
+                <p class="ex-tit"><span class="ex-tit-num">1.2. </span>Complete the conversations.</p>
+              </div>
+              <div class="col-xs-4 text-right">
+                <button class="btn btn-success" ng-click="ex1_2.correct()">Correct</button>
+                <button class="btn btn-warning" ng-click="ex1_2.answer()">Answers</button>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col-xs-12">
+                <p>1<br/>
+                
+                  <span class="dial-A">A: </span>I saw Brian a few days ago.<br/>
+                  <span class="dial-B">B: </span>Oh, did you? <input ng-model="ex1_2.questions[0].ua"/> these days? <span class="dial-tip">(what / he / do)</span> 
+                  <resultat ex="1_2" q="ex1_2.questions[0]"></resultat>
+                  <br/>
 
-            <span class="dial-A">A: </span>Psychology.<br/>
-            <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[2].ua"/> it? <span class="dial-tip">(he / enjoy)</span>
-            <resultat q-obj="ex1_2" q-num="2"></resultat>
-            <br/>
+                  <span class="dial-A">A: </span>He's at university.<br/>
+                  <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[1].ua"/> ? <span class="dial-tip">(what / he / study)</span>
+                  <resultat ex="1_2" q="ex1_2.questions[1]"></resultat>
+                  <br/>
 
-            <span class="dial-A">A: </span>Yes, he says it's a very good course.<br/>
-          </p>
+                  <span class="dial-A">A: </span>Psychology.<br/>
+                  <span class="dial-B">B: </span> <input ng-model="ex1_2.questions[2].ua"/> it? <span class="dial-tip">(he / enjoy)</span>
+                  <resultat ex="1_2" q="ex1_2.questions[2]"></resultat>
+                  <br/>
 
-          <p>2<br/>
-            <span class="dial-A">A: </span>Hi, Nicola. How <input ng-model="ex1_2.questions[3].ua"/> ? <span class="dial-tip">(your new job / go)</span>
-            <resultat q-obj="ex1_2" q-num="3"></resultat>
-            <br/>
+                  <span class="dial-A">A: </span>Yes, he says it's a very good course.<br/>
+                </p>
+              </div>
+            </div>
 
-            <span class="dial-B">B: </span>Not bad. It wasn't so good at first, but <input ng-model="ex1_2.questions[4].ua"/> better now. <span class="dial-tip">(it / get)</span>
-            <resultat q-obj="ex1_2" q-num="4"></resultat>
-            <br/>
+            <div class="row">
+              <div class="col-xs-12">
+                <p>2<br/>
+                  <span class="dial-A">A: </span>Hi, Nicola. How <input ng-model="ex1_2.questions[3].ua"/> ? <span class="dial-tip">(your new job / go)</span>
+                  <resultat ex="1_2" q="ex1_2.questions[3]"></resultat>
+                  <br/>
 
-            <span class="dial-A">A: </span>What about Daniel? Is he OK?<br/>
-            <span class="dial-B">B: </span>Yes, but <input ng-model="ex1_2.questions[5].ua"/> his work right now. <span class="dial-tip">(he / not / enjoy)</span>
-            <resultat q-obj="ex1_2" q-num="5"></resultat>
-            <br/>
+                  <span class="dial-B">B: </span>Not bad. It wasn't so good at first, but <input ng-model="ex1_2.questions[4].ua"/> better now. <span class="dial-tip">(it / get)</span>
+                  <resultat ex="1_2" q="ex1_2.questions[4]"></resultat>
+                  <br/>
 
-            <span class="dial-B">   </span>He's been in the same job for a long time and <input ng-model="ex1_2.questions[6].ua"/> to get bored with it. <span class="dial-tip">(he / begin)</span>
-            <resultat q-obj="ex1_2" q-num="6"></resultat>
-            <br/>
+                  <span class="dial-A">A: </span>What about Daniel? Is he OK?<br/>
+                  <span class="dial-B">B: </span>Yes, but <input ng-model="ex1_2.questions[5].ua"/> his work right now. <span class="dial-tip">(he / not / enjoy)</span>
+                  <resultat ex="1_2" q="ex1_2.questions[5]"></resultat>
+                  <br/>
 
-          </p>
-          <button class="btn btn-warning" ng-click="ex1_2.answer()">Answers</button>
-          <button class="btn btn-success" ng-click="ex1_2.correct()">Correct</button>
+                  <span class="dial-B">   </span>He's been in the same job for a long time and <input ng-model="ex1_2.questions[6].ua"/> to get bored with it. <span class="dial-tip">(he / begin)</span>
+                  <resultat ex="1_2" q="ex1_2.questions[6]"></resultat>
+                  <br/>
+
+                </p>
+              </div>
+            </div>
+
+          </div>
         </div>
-
-        ex1_2={{ex1_2.questions[0].correct}}
 
       </div>
 
