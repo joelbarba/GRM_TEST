@@ -1,5 +1,6 @@
 html, body {
   height: 95%;
+  font: 16px Verdana, sans-serif;
 }
 
 .row {
@@ -25,4 +26,33 @@ td {
 }
 .glyphicon-remove {
 	color: red;
+}
+
+.custom-label {
+	font-size: 100%;
+	cursor:pointer;
+}
+.strike-text {
+	text-decoration: line-through;
+}
+
+.answ {
+	background: #CCCCCC;
+	color: #111111;
+}
+
+.little-img {
+	width: 200px;
+	height: 130px;
+	cursor:pointer;
+}
+
+.big-img {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	cursor:pointer;
+}
+
+.compact-question {
+	height: 40px;
 }
