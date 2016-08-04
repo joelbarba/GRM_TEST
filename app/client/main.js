@@ -1,9 +1,57 @@
 import angular from 'angular';
 import angularMeteor from 'angular-meteor';
- 
-var ngApp = angular.module('mainModule', [angularMeteor])
+import uiRouter from 'angular-ui-router';
 
-ngApp.controller('MainCtrl', ['$scope', '$rootScope',
+// import template1 from './imports/*.html';
+// import template2 from './imports/unit2.html';
+// import template3 from './unit3.html';
+ 
+var ngApp = angular.module('mainModule', [angularMeteor, uiRouter])
+
+
+
+ngApp.config(['$locationProvider', '$urlRouterProvider', '$stateProvider',
+  function($locationProvider, $urlRouterProvider, $stateProvider) {
+ 
+  $locationProvider.html5Mode(true);
+
+  console.log($locationProvider);
+  console.log($urlRouterProvider);
+
+  $stateProvider
+    .state('unit0', {
+      url: '/unit0',
+      template: '<p> heeeello</p>'
+    });
+
+  // $stateProvider
+  //   .state('unit', {
+  //     url: '/unit/:unitId',
+  //     templateUrl: template2
+  //   });    
+
+  $stateProvider
+    .state('unit1', {
+      url: '/unit1',
+      templateUrl: 'unit1.html',
+      controller: 'Unit1Ctrl'
+    });
+  $stateProvider
+    .state('unit2', {
+      url: '/unit2',
+      templateUrl: 'unit2.html'
+    });
+  $stateProvider
+    .state('unit3', {
+      url: '/unit3',
+      templateUrl: 'http://localhost:3000/client/unit3.html'
+    });
+ 
+  $urlRouterProvider.otherwise('/');
+}]);
+
+
+ngApp.controller('Unit1Ctrl', ['$scope', '$rootScope',
   function($scope, $rootScope) {
 
 
