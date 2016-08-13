@@ -4,7 +4,7 @@
     <!-- Unit title -->
     <div class="row">
       <div class="col-xs-8">
-        <h3>Unit1</h3>
+        <h3>Unit 1 - Present continuous (I am doing)</h3>
       </div>
       <div class="col-xs-4 text-right">
         <button class="btn btn-info glyphicon" 
@@ -16,13 +16,13 @@
     <!-- Unit images -->
     <div class="row" ng-show="!showInfo">
       <div ng-class="!!viewImg1 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="unit1/unit1.a.png" class="img-thumbnail" ng-class="{'little-img': !viewImg1}" ng-click="viewImg1 = !viewImg1">
+        <img src="unit1.a.png" class="img-thumbnail" ng-class="{'little-img': !viewImg1}" ng-click="viewImg1 = !viewImg1">
       </div>
       <div ng-class="!!viewImg2 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="unit1/unit1.b.png" class="img-thumbnail" ng-class="{'little-img': !viewImg2}" ng-click="viewImg2 = !viewImg2">
+        <img src="unit1.b.png" class="img-thumbnail" ng-class="{'little-img': !viewImg2}" ng-click="viewImg2 = !viewImg2">
       </div>
       <div ng-class="!!viewImg3 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="unit1/unit1.c.png" class="img-thumbnail" ng-class="{'little-img': !viewImg3}" ng-click="viewImg3 = !viewImg3">
+        <img src="unit1.c.png" class="img-thumbnail" ng-class="{'little-img': !viewImg3}" ng-click="viewImg3 = !viewImg3">
       </div>
     </div>
 
@@ -36,8 +36,8 @@
             <p class="ex-tit">{{ex1_1.title}}</p>
           </div>
           <div class="col-xs-4 text-right">
-            <button class="btn btn-success" ng-click="ex1_1.correct()">Correct</button>              
-            <button class="btn btn-warning" ng-click="ex1_1.answer()">Answers</button>
+            <button class="btn btn-success" ng-click="ex1_1.correct(ex1_1)">Correct</button>              
+            <button class="btn btn-warning" ng-click="ex1_1.answer(ex1_1)">Answers</button>
             <button class="btn btn-info glyphicon" 
                 ng-class="viewQ1_1 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
                 ng-click="viewQ1_1 = !viewQ1_1"></button>
@@ -73,8 +73,8 @@
             <p class="ex-tit">{{ex1_2.title}}</p>
           </div>
           <div class="col-xs-4 text-right">
-            <button class="btn btn-success" ng-click="ex1_2.correct()">Correct</button>
-            <button class="btn btn-warning" ng-click="ex1_2.answer()">Answers</button>
+            <button class="btn btn-success" ng-click="ex1_2.correct(ex1_2)">Correct</button>
+            <button class="btn btn-warning" ng-click="ex1_2.answer(ex1_2)">Answers</button>
             <button class="btn btn-info glyphicon" 
                 ng-class="viewQ1_2 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
                 ng-click="viewQ1_2 = !viewQ1_2"></button>
@@ -142,8 +142,8 @@
             <p class="ex-tit">{{ex1_3.title}}</p>
           </div>
           <div class="col-xs-4 text-right">
-            <button class="btn btn-success" ng-click="ex1_3.correct()">Correct</button>
-            <button class="btn btn-warning" ng-click="ex1_3.answer()">Answers</button>
+            <button class="btn btn-success" ng-click="ex1_3.correct(ex1_3)">Correct</button>
+            <button class="btn btn-warning" ng-click="ex1_3.answer(ex1_3)">Answers</button>
             <button class="btn btn-info glyphicon" 
                 ng-class="viewQ1_3 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
                 ng-click="viewQ1_3 = !viewQ1_3"></button>
@@ -221,8 +221,8 @@
             <p class="ex-tit">{{ex1_4.title}}</p>
           </div>
           <div class="col-xs-4 text-right">
-            <button class="btn btn-success" ng-click="ex1_4.correct()">Correct</button>
-            <button class="btn btn-warning" ng-click="ex1_4.answer()">Answers</button>
+            <button class="btn btn-success" ng-click="ex1_4.correct(ex1_4)">Correct</button>
+            <button class="btn btn-warning" ng-click="ex1_4.answer(ex1_4)">Answers</button>
             <button class="btn btn-info glyphicon" 
                 ng-class="viewQ1_4 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
                 ng-click="viewQ1_4 = !viewQ1_4"></button>

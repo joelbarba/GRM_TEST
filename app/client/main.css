@@ -34,6 +34,7 @@ td {
 }
 .strike-text {
 	text-decoration: line-through;
+	background: #AAAAAA;
 }
 
 .answ {
@@ -55,4 +56,14 @@ td {
 
 .compact-question {
 	height: 40px;
+}
+
+input.text-inline-answ {
+	margin: 1px;
+}
+input.text-sent-line-answ {
+	width: 700px;
+	margin-left: 22px;
+	margin-top: 1px;
+	margin-bottom: 12px;
 }

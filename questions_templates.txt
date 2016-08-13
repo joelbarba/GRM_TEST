@@ -1,0 +1,219 @@
+
+Replace:
+nn_mm = number of the exercice
+
+-- Fill text spot -----------------------------------------------------------------
+
+    <!-- Exercice nn_mm -->
+    <div class="row" id="exnn_mm">
+      <hr/>
+      <div class="col-xs-12">
+
+        <div class="row">
+          <div class="col-xs-8">
+            <p class="ex-tit">{{exnn_mm.title}}</p>
+          </div>
+          <div class="col-xs-4 text-right">
+            <button class="btn btn-success" ng-click="exnn_mm.correct(exnn_mm)">Correct</button>
+            <button class="btn btn-warning" ng-click="exnn_mm.answer(exnn_mm)">Answers</button>
+            <button class="btn btn-info glyphicon" 
+                ng-class="viewQnn_mm ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
+                ng-click="viewQnn_mm = !viewQnn_mm"></button>
+          </div>
+        </div>
+        
+        <div class="row" ng-show="!!viewQnn_mm">
+          <p class="ex-tit">
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+            <opcio word="xxxxxx"></opcio>
+          </p>
+        </div>
+        <div class="row" ng-show="!!viewQnn_mm">
+          <div class="col-xs-12">
+            <p>
+              <text-q ex="exnn_mm" num="0" br></text-q>
+              <text-q ex="exnn_mm" num="1" br></text-q>
+              <text-q ex="exnn_mm" num="2" br></text-q>
+              <text-q ex="exnn_mm" num="3" br></text-q>
+              <text-q ex="exnn_mm" num="4" br></text-q>
+              <text-q ex="exnn_mm" num="5" br></text-q>
+              <text-q ex="exnn_mm" num="6" br></text-q>
+              <text-q ex="exnn_mm" num="7" br></text-q>
+              <text-q ex="exnn_mm" num="8" br></text-q>
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    // Object for question nn_mm
+    $scope.exnn_mm = (function() {
+      var exnn_mm = {};
+      exnn_mm.qStr = 'nn_mm';
+      exnn_mm.title = 'nn_mm. xxxxxxxxxxxxxxxxxxxxxxxxxx.';
+      exnn_mm.data = [
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "1. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "2. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "3. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "4. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "5. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "6. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "7. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "8. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" },
+        { ca: ["xxxxxxxxxx", "xxxxxxxxxx"], t1: "9. xxxxxxxxxxx",    hint: "(xxxxxxx)",    t2:"xxxxxxxx" }
+      ];
+      exnn_mm.prepare = function() {
+        exnn_mm.q = angular.copy(exnn_mm.data);
+        exnn_mm.showCorr = false;
+        exnn_mm.showAnsw = false;
+      };
+      exnn_mm.correct = correct_ex;
+      exnn_mm.answer = answer_ex;
+      return exnn_mm;
+    })();
+
+
+
+
+
+-- Fill text spot from a posible word list -----------------------------------------------------------------
+
+
+    <!-- Exercice nn_mm -->
+    <div class="row" id="exnn_mm">
+      <hr/>
+      <div class="col-xs-12">
+
+        <div class="row">
+          <div class="col-xs-8">
+            <p class="ex-tit">{{exnn_mm.title}}</p>
+          </div>
+          <div class="col-xs-4 text-right">
+            <button class="btn btn-success" ng-click="exnn_mm.correct(exnn_mm)">Correct</button>
+            <button class="btn btn-warning" ng-click="exnn_mm.answer(exnn_mm)">Answers</button>
+            <button class="btn btn-info glyphicon" 
+                ng-class="viewQnn_mm ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
+                ng-click="viewQnn_mm = !viewQnn_mm"></button>
+          </div>
+        </div>
+        
+        <div class="row" ng-show="!!viewQnn_mm">
+          <p class="ex-tit">
+            <opcio word="xxxxxxxxx"></opcio>
+            <opcio word="xxxxxxxxx"></opcio>
+            <opcio word="xxxxxxxxx"></opcio>
+          </p>
+        </div>
+        <div class="row" ng-show="!!viewQnn_mm">
+          <div class="col-xs-12">
+            <p>
+              <span class="dial">9999. xxxxxxxx <input ng-model="exnn_mm.questions[9999].ua"/> xxxxxxxxx.</span>
+              <resultat ex="nn_mm" q="exnn_mm.questions[9999]"></resultat>
+              <br/>
+
+              <span class="dial">9999. xxxxxxxx <input ng-model="exnn_mm.questions[9999].ua"/> xxxxxxxxx.</span>
+              <resultat ex="nn_mm" q="exnn_mm.questions[9999]"></resultat>
+              <br/>
+
+
+
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    // Object for question nn_mm
+    $scope.exnn_mm = (function() {
+      var exnn_mm = {};
+      exnn_mm.qStr = 'nn_mm';
+      exnn_mm.title = 'nn_mm. xxxxxxxxxxxxxxxxxxxxxxxxx:';
+      exnn_mm.data = [
+        { id: 1,  ca: ["xxxxxxxxx"] },
+        { id: 2,  ca: ["xxxxxxxxx"] },
+        { id: 3,  ca: ["xxxxxxxxx"] }
+      ];
+      exnn_mm.prepare = function() {
+        exnn_mm.questions = angular.copy(exnn_mm.data);
+        exnn_mm.showCorr = false;
+        exnn_mm.showAnsw = false;
+      };
+      exnn_mm.correct = correct_ex;
+      exnn_mm.answer = answer_ex;
+      return exnn_mm;
+    })();  
+
+
+-- Fill a text spot (hint at the end of the sentence) -----------------------------------------------------------------    
+
+
+    <!-- Exercice nn_mm -->
+    <div class="row" id="exnn_mm" ng-show="true">
+      <hr/>
+      <div class="col-xs-12">
+
+        <div class="row">
+          <div class="col-xs-8">
+            <p class="ex-tit">{{exnn_mm.title}}</p>
+          </div>
+          <div class="col-xs-4 text-right">
+            <button class="btn btn-success" ng-click="exnn_mm.correct(exnn_mm)">Correct</button>
+            <button class="btn btn-warning" ng-click="exnn_mm.answer(exnn_mm)">Answers</button>
+            <button class="btn btn-info glyphicon" 
+                ng-class="viewQnn_mm ? 'glyphicon-resize-small' : 'glyphicon-resize-full'" 
+                ng-click="viewQnn_mm = !viewQnn_mm"></button>
+          </div>
+        </div>
+        
+        <div class="row" ng-show="!!viewQnn_mm">
+          <div class="col-xs-12">
+            <p>
+              <span class="dial">9999. xxxxxxxxx <input ng-model="exnn_mm.questions[9999].ua"/> xxxxxxxxx</span>
+              <span class="dial-tip">(xxxxxxxxx)</span> 
+              <resultat ex="nn_mm" q="exnn_mm.questions[9999]"></resultat>
+              <br/>
+
+              <span class="dial">9999. xxxxxxxxx <input ng-model="exnn_mm.questions[9999].ua"/> xxxxxxxxx</span>
+              <span class="dial-tip">(xxxxxxxxx)</span> 
+              <resultat ex="nn_mm" q="exnn_mm.questions[9999]"></resultat>
+              <br/>
+
+
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+    // Object for question nn_mm
+    $scope.exnn_mm = (function() {
+      var exnn_mm = {};
+      exnn_mm.qStr = 'nn_mm';
+      exnn_mm.title = 'nn_mm. xxxxxxxxxxxxxxxxxxxxxxxx.';
+      exnn_mm.data = [
+        { id: 1,  ca: ["xxxxxxxx", "xxxxxxxx"] },
+        { id: 2,  ca: ["xxxxxxxx", "xxxxxxxx"] },
+        { id: 3,  ca: ["xxxxxxxx", "xxxxxxxx"] }
+      ];
+      exnn_mm.prepare = function() {
+        exnn_mm.questions = angular.copy(exnn_mm.data);
+        exnn_mm.showCorr = false;
+        exnn_mm.showAnsw = false;
+      };
+      exnn_mm.correct = correct_ex;
+      exnn_mm.answer = answer_ex;
+      return exnn_mm;
+    })();
