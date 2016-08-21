@@ -16,6 +16,11 @@ html, body {
 .dial-tip {
   color: #AAAAAA;
 }
+.underline {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #777777;
+}
 
 td {
 	padding: 3px;
@@ -35,6 +40,31 @@ td {
 .strike-text {
 	text-decoration: line-through;
 	background: #AAAAAA;
+}
+.option-answ-button {
+	background-color: #BBB;
+	font-size: 100%;
+	cursor:pointer;	
+}
+.answ-ok-icon {
+	color: #7A7;
+	left: 3px;
+	top: 1px;
+}
+.answ-ko-icon {
+	color: #888;
+	left: 3px;
+	top: 2px;
+}
+.answ-ok-word {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #3A3;
+}
+.answ-ko-word {
+  text-decoration: underline;
+  font-weight: bold;
+  color: #C33;
 }
 
 .answ {
@@ -60,6 +90,9 @@ td {
 
 input.text-inline-answ {
 	margin: 1px;
+}
+input.text-okko-answ {
+	margin: 1px 0px 5px 10px;
 }
 input.text-sent-line-answ {
 	width: 700px;

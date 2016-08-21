@@ -5,32 +5,10 @@ console.log('loading unit2.js');
 // ua = user answer
 // q = question
 
-angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
-  function($scope, $rootScope) {
+angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope', 'CorrectExFactory', 'AnswerExFactory',
+  function($scope, $rootScope, CorrectExFactory, AnswerExFactory) {
 
-    // Checks (question by question) if the correct answer (ca) matches the user answer
-    var correct_ex = function(ex, qStr) {
-
-      ex.q.forEach(function(q) {
-        q.correct = false;
-        if (q.ua) {
-          for (var t = 0; t < q.ca.length; t++) {
-            if (q.ca[t].toUpperCase() == q.ua.toUpperCase()) q.correct = true;
-          }
-        }
-      });
-      ex.showCorr = true;
-      $rootScope.$emit('show_question_result', ex.qStr, ex.showCorr);
-    };
-
-    // Show the answers of every question
-    var answer_ex = function(ex) {
-      ex.showAnsw = !ex.showAnsw;
-      $rootScope.$emit('show_question_answer', ex.qStr, ex.showAnsw);
-    };
-
-
-
+console.log('exe unit2.js');
     // Object for question 2 1
     $scope.ex2_1 = (function() {
       var ex2_1 = {};
@@ -50,8 +28,8 @@ angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
         ex2_1.showCorr = false;
         ex2_1.showAnsw = false;
       };
-      ex2_1.correct = correct_ex;
-      ex2_1.answer = answer_ex;
+      ex2_1.correct = CorrectExFactory;
+      ex2_1.answer = AnswerExFactory;
       return ex2_1;
     })();
 
@@ -76,8 +54,8 @@ angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
         ex2_2.showCorr = false;
         ex2_2.showAnsw = false;
       };
-      ex2_2.correct = correct_ex;
-      ex2_2.answer = answer_ex;
+      ex2_2.correct = CorrectExFactory;
+      ex2_2.answer = AnswerExFactory;
       return ex2_2;
     })();
 
@@ -102,8 +80,8 @@ angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
         ex2_3.showCorr = false;
         ex2_3.showAnsw = false;
       };
-      ex2_3.correct = correct_ex;
-      ex2_3.answer = answer_ex;
+      ex2_3.correct = CorrectExFactory;
+      ex2_3.answer = AnswerExFactory;
       return ex2_3;
     })();
 
@@ -125,8 +103,8 @@ angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
         ex2_4.showCorr = false;
         ex2_4.showAnsw = false;
       };
-      ex2_4.correct = correct_ex;
-      ex2_4.answer = answer_ex;
+      ex2_4.correct = CorrectExFactory;
+      ex2_4.answer = AnswerExFactory;
       return ex2_4;
     })();
 
@@ -148,8 +126,8 @@ angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
         ex2_5.showCorr = false;
         ex2_5.showAnsw = false;
       };
-      ex2_5.correct = correct_ex;
-      ex2_5.answer = answer_ex;
+      ex2_5.correct = CorrectExFactory;
+      ex2_5.answer = AnswerExFactory;
       return ex2_5;
     })();
 
@@ -160,7 +138,5 @@ angular.module('mainModule').controller('Unit2Ctrl', ['$scope', '$rootScope',
     $scope.ex2_4.prepare();
     $scope.ex2_5.prepare();
 
-
   }]
 );
-
