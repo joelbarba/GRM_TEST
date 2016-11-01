@@ -1,9 +1,0 @@
-# Meteor packages to install for this app:
-
-meteor remove blaze-html-templates
-meteor remove ecmascript
-meteor npm install --save angular angular-meteor
-meteor add angular-templates pbastowski:angular-babel
-
-meteor npm install --save angular-ui-router
-
