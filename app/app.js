@@ -7,6 +7,8 @@ var ngApp = angular.module('myApp', [
   'myApp.unit1',
   'myApp.unit2',
   'myApp.unit3',
+  'myApp.unit4',
+  'myApp.unit5',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
