@@ -13,6 +13,9 @@ html, body {
 .ex-tit-num {
   color: black;
 }
+.ex-score {
+  color: #2a8053;
+}
 .dial-tip {
   color: #AAAAAA;
 }

@@ -13,7 +13,6 @@ var ngApp = angular.module('myApp', [
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
-
   $routeProvider.otherwise({redirectTo: '/unit1'});
 }]);
 
@@ -195,8 +194,23 @@ ngApp.directive('textQC', [function() {
   };
 }]);
 
+ngApp.directive('questionBox', [function() {
+  return {
+    restrict : 'AE',
+    replace  : true,
+    templateUrl : 'question-tmpl.html',
+    transclude: true,
+    scope    : {
+      ex: '='
+    },
+    link     : function($scope, element, attr) {
+        console.log('eeee');
+    }
+  };
+}]);
+
 // Checks (question by question) if the correct answer (ca) matches the user answer
-ngApp.factory('CorrectExFactory', ['$rootScope', function($rootScope) {
+ngApp.factory('CorrectExFactory', ['$rootScope', 'Teacher', function($rootScope, Teacher) {
   return function(ex, qStr) {
 
     ex.q.forEach(function(q) {
@@ -209,6 +223,9 @@ ngApp.factory('CorrectExFactory', ['$rootScope', function($rootScope) {
         if (q.ca[0] == '') q.correct = true;
       }
     });
+
+    Teacher.setScore(ex);
+
     ex.showCorr = true;
     $rootScope.$emit('show_question_result', ex.qStr, ex.showCorr);
   };
@@ -238,6 +255,7 @@ ngApp.factory('ArrayHelper', [function() {
       }
       return outArr;
     },
+    // Set the number at the beginning of each question (t1)
     setQNum: function(ex) {
       var outArr = angular.copy(ex);
       outArr.forEach(function(q, num) {
@@ -248,3 +266,86 @@ ngApp.factory('ArrayHelper', [function() {
   };
 }]);
 
+
+// Service to control the sequence
+ngApp.factory('Teacher', ['$rootScope', function($rootScope) {
+  var currentUnit = 1;
+  var currentQuestion = 1;
+  var score;
+
+  return {
+    reset : function() {
+      currentUnit = 1;
+      currentQuestion = 1;
+      score = [
+        [[],[],[],[]],
+        [[],[],[],[],[]]
+      ];
+    },
+    getCurrentUnit: function() {
+      return currentUnit;
+    },
+    getCurrentQuestion: function() {
+      return currentQuestion;
+    },
+    isUnlock: function(unit, question) {
+      return (currentUnit >= unit && currentQuestion >= question);
+    },
+    getLastScore: function(unit, question) {
+      unit--; question--;
+      if (score.length > unit) {
+        if (score[unit].length > question) {
+          if (score[unit][question].length > 0) {
+            return score[unit][question][score[unit][question].length - 1].perScore;
+          }
+        }
+      }
+      return 0;
+    },
+    getAtempts: function(unit, question) {
+      unit--; question--;
+      if (score.length > unit) {
+        if (score[unit].length > question) {
+          if (score[unit][question].length > 0) {
+            return score[unit][question].length;
+          }
+        }
+      }
+      return 0;
+    },
+    setScore: function(ex) {
+      var unit = ex.unit - 1;
+      var question = ex.qNum - 1;
+      if (score.length > unit) {
+        if (score[unit].length > question) {
+
+          // Set the new score
+          var newScore = {
+            moment: new Date(),
+            perScore: 0,
+            totalAns: ex.q.length,
+            correctAns: 0
+          };
+          ex.q.forEach(function(q) {
+            if (q.correct) newScore.correctAns++;
+          });
+          if (ex.q.length > 0) {
+            newScore.perScore = Math.round(newScore.correctAns / ex.q.length * 10000) / 100;
+          }
+          score[unit][question].push(newScore);
+          if (newScore.totalAns === newScore.correctAns && currentQuestion <= (question + 1)) {
+            currentQuestion = question + 2;
+            $rootScope.$emit('refresh_page');
+          }
+        }
+      }
+    }
+  };
+}]);
+
+
+
+
+ngApp.run(['Teacher', function(Teacher) {
+  Teacher.reset();
+}]);

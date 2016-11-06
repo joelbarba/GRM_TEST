@@ -8,84 +8,31 @@ angular.module('myApp.unit1', ['ngRoute'])
   });
 }])
 
-.controller('Unit1Ctrl', ['$scope', '$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory',
-  function($scope, $rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory) {
-
+.controller('Unit1Ctrl', ['$scope', '$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher', 'AppData',
+  function($scope, $rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher, AppData) {
 
     // ex = exercice
     // ca = correct answer
     // ua = user answer
     // q = question
 
+    $scope.isUnlock = Teacher.isUnlock;
+
+    $scope.refreshPage = function() {
+      $scope.viewQ1_1 = (1 === Teacher.getCurrentQuestion());
+      $scope.viewQ1_2 = (2 === Teacher.getCurrentQuestion());
+      $scope.viewQ1_3 = (3 === Teacher.getCurrentQuestion());
+      $scope.viewQ1_4 = (4 === Teacher.getCurrentQuestion());
+    };
+    $rootScope.$on('refresh_page', $scope.refreshPage);
+    $scope.refreshPage();
+    $scope.getLastScore = Teacher.getLastScore;
+    $scope.getAtempts = Teacher.getAtempts;
+
 
     // Object for question 1 1
-    $scope.ex1_1 = (function() {
-      var ex1_1 = {};
-      ex1_1.qStr = '1_1';
-      ex1_1.title = '1.1. The sentences on the right follow those on the left. Which sentence goes with which?';
-      ex1_1.data = [
-        { id: 1, text : "Please don't make so much noise.",         ca: "I'm trying to work." },
-        { id: 2, text : "I need to eat something soon.",            ca: "I'm getting hungry." },
-        { id: 3, text : "I don't have anywhere to live right now.", ca: "I'm looking for an apartment." },
-        { id: 4, text : "We need to leave soon.",                   ca: "It's getting late." },
-        { id: 5, text : "They don't need their car any more.",      ca: "They're trying to sell it." },
-        { id: 6, text : "Things are not so good at work.",          ca: "The company is losing money." },
-        { id: 7, text : "It isn't true what they said.",            ca: "They're lying." },
-        { id: 8, text : "We're going to get wet",                   ca: "It's starting to rain." }
-      ];
-      ex1_1.prepare = function() {
-
-
-        ex1_1.questions = ArrayHelper.unorderArray(ex1_1.data);
-        ex1_1.allAnswers = ArrayHelper.unorderArray(ex1_1.data);
-        ex1_1.allAnswers.unshift({ id: 0, ca:'' });
-        ex1_1.showCorr = false;
-        ex1_1.showAnsw = false;
-      };
-      ex1_1.correct = function() {
-        ex1_1.questions.forEach(function(q) {
-          q.correct = (q.id == q.ua);
-        });
-        ex1_1.showCorr = true;
-        $rootScope.$emit('show_question_result', '1_1', ex1_1.showCorr);
-
-      };
-      ex1_1.answer = AnswerExFactory;
-      return ex1_1;
-    })();
-
-
-    // Object for question 1 2
-    $scope.ex1_2 = (function() {
-      var ex1_2 = {};
-      ex1_2.qStr = '1_2';
-      ex1_2.title = '1.2. Complete the conversations.';
-      ex1_2.data = [
-        { t1: "B: Oh, did you? ",    hint: "(what / he / do)",   t2: " these days?" },
-        { t1: "B: ",    hint: "(what / he / study)",   t2: " ?" },
-        { t1: "B: ",    hint: "(he / enjoy)",   t2: " it?." },
-        { t1: "A: Hi, Nicola. How ",    hint: "(your new job / go)",   t2: " ?" },
-        { t1: "B: Not bad. It wasn't so good at first, but ",    hint: "(it / get)",   t2: " better now." },
-        { t1: "B: Yes, but ",    hint: "(he / not / enjoy)",   t2: " his work right now." },
-        { t1: "He's been in the same job for a long time and ",    hint: "(he / begin)",   t2: " to get bored with it." }
-      ];
-      ex1_2.data[0].ca  = ["What is he doing", "What's he doing"];
-      ex1_2.data[1].ca  = ["What is he studying", "What's he studying"];
-      ex1_2.data[2].ca  = ["Is he enjoying"];
-      ex1_2.data[3].ca  = ["is your new job going", "'s your new job going"];
-      ex1_2.data[4].ca  = ["it is getting", "it's getting"];
-      ex1_2.data[5].ca  = ["he is not enjoying", "he's not enjoying", "he isn't enjoying"];
-      ex1_2.data[6].ca  = ["he is beginning", "he's beginning"];
-
-      ex1_2.prepare = function() {
-        ex1_2.q = angular.copy(ex1_2.data);
-        ex1_2.showCorr = false;
-        ex1_2.showAnsw = false;
-      };
-      ex1_2.correct = CorrectExFactory;
-      ex1_2.answer = AnswerExFactory;
-      return ex1_2;
-    })();
+    $scope.ex1_1 = AppData.ex1_1();
+    $scope.ex1_2 = AppData.ex1_2();
 
 
     // Object for question 1 3

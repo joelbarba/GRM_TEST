@@ -26,6 +26,8 @@
       </div>
     </div>
 
+
+
     <!-- Exercice 1.1 -->
     <div class="row" id="ex1-1">
       <hr/>
@@ -34,10 +36,12 @@
         <div class="row">
           <div class="col-xs-8">
             <p class="ex-tit">{{ex1_1.title}}</p>
+            <p class="ex-score">Last score: {{ex1_1.getLastScore()}}%, attempts: {{ex1_1.getAtempts()}}</p>
           </div>
           <div class="col-xs-4 text-right">
             <button class="btn btn-success" ng-click="ex1_1.correct(ex1_1)">Correct</button>
             <button class="btn btn-warning" ng-click="ex1_1.answer(ex1_1)">Answers</button>
+            <button class="btn btn-error" ng-click="ex1_1.prepare()">Reset</button>
             <button class="btn btn-info glyphicon"
                 ng-class="viewQ1_1 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'"
                 ng-click="viewQ1_1 = !viewQ1_1"></button>
@@ -47,7 +51,7 @@
         <div class="row" ng-show="!!viewQ1_1">
           <div class="col-xs-12">
             <table>
-              <tr ng-repeat="q in ex1_1.questions">
+              <tr ng-repeat="q in ex1_1.q">
                 <td>{{$index+1}}. {{q.text}}</td>
                 <td>
                   <select ng-model="q.ua">
@@ -71,11 +75,13 @@
         <div class="row">
           <div class="col-xs-8">
             <p class="ex-tit">{{ex1_2.title}}</p>
+            <p class="ex-score">Last score: {{ex1_2.getLastScore()}}%, attempts: {{ex1_2.getAtempts()}}</p>
           </div>
           <div class="col-xs-4 text-right">
             <button class="btn btn-success" ng-click="ex1_2.correct(ex1_2)">Correct</button>
             <button class="btn btn-warning" ng-click="ex1_2.answer(ex1_2)">Answers</button>
-            <button class="btn btn-info glyphicon"
+            <button class="btn btn-info" ng-click="ex1_2.prepare()">Reset</button>
+            <button class="btn btn-error glyphicon"
                 ng-class="viewQ1_2 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'"
                 ng-click="viewQ1_2 = !viewQ1_2"></button>
           </div>
@@ -111,7 +117,7 @@
     </div>
 
     <!-- Exercice 1.3 -->
-    <div class="row" id="ex1-3" ng-show="true">
+    <div class="row" id="ex1-3">
       <hr/>
       <div class="col-xs-12">
 
