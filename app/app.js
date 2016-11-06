@@ -221,3 +221,30 @@ ngApp.factory('AnswerExFactory', ['$rootScope', function($rootScope) {
     $rootScope.$emit('show_question_answer', ex.qStr, ex.showAnsw);
   };
 }]);
+
+
+// Helping functions for arrays
+ngApp.factory('ArrayHelper', [function() {
+  return {
+    // Order randomly a given array
+    unorderArray : function(inputArray) {
+      var inArr = angular.copy(inputArray);
+      var outArr = [];
+
+      while (inArr.length > 0) {
+        var sel = Math.floor(Math.random() * inArr.length);
+        outArr.push(inArr[sel]);
+        inArr.splice(sel, 1);
+      }
+      return outArr;
+    },
+    setQNum: function(ex) {
+      var outArr = angular.copy(ex);
+      outArr.forEach(function(q, num) {
+          q.t1 = (num + 1) + ". " + q.t1;
+      });
+      return outArr;
+    }
+  };
+}]);
+
