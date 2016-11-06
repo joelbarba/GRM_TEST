@@ -12,12 +12,12 @@
         <button class="btn btn-warning" ng-click="ex.answer(ex)">Answers</button>
         <button class="btn btn-error" ng-click="ex.prepare()">Reset</button>
         <button class="btn btn-info glyphicon"
-                ng-class="viewQ1_1 ? 'glyphicon-resize-small' : 'glyphicon-resize-full'"
-                ng-click="viewQ1_1 = !viewQ1_1"></button>
+                ng-class="ex.isExpanded ? 'glyphicon-resize-small' : 'glyphicon-resize-full'"
+                ng-click="ex.isExpanded = !ex.isExpanded"></button>
       </div>
     </div>
 
-    <div class="row" ng-show="!!viewQ1_1">
+    <div class="row" ng-show="!!ex.isExpanded">
       <div class="col-xs-12" ng-transclude>
 
 

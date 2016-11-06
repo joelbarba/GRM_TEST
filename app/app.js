@@ -203,8 +203,7 @@ ngApp.directive('questionBox', [function() {
     scope    : {
       ex: '='
     },
-    link     : function($scope, element, attr) {
-        console.log('eeee');
+    link : function($scope, element, attr) {
     }
   };
 }]);

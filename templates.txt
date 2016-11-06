@@ -122,43 +122,51 @@ controller('Unit9999Ctrl', ['$scope', '$rootScope', 'CorrectExFactory', 'AnswerE
 
 
 // -------------------------------------------------------------------------
-// 9999 = num
 // 888 = ex
 
-    // Object for question 9999_888
-    $scope.ex9999_888 = (function() {
-      var ex9999_888 = {};
-      ex9999_888.qStr = "9999_888";
-      ex9999_888.title = "9999.888. xxxxxxxxxxxxxxxxxxxxxxxxxx.";
-      ex9999_888.data = [
-        { t1: "1. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "2. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "3. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "4. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "5. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "6. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "7. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "8. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "9. xxxxxxxxxxx ",    hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-        { t1: "10. xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
-      ];
-      ex9999_888.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex9999_888.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+  unit.ex[888] = function() {
+    var ex = {};
+    ex.unit = unit.unitNum;
+    ex.qNum = 888;
+    ex.qStr = ex.unit + '_' + ex.qNum;
+    ex.title = ex.unit + '.' + ex.qNum + ' ';
+    ex.title += "xxxxxxxxxxxxxxxxx.";
+    ex.data = [
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+    ];
+    ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+    ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
 
-      ex9999_888.prepare = function() {
-        ex9999_888.q = angular.copy(ex9999_888.data);
-        ex9999_888.showCorr = false;
-        ex9999_888.showAnsw = false;
-      };
-      ex9999_888.correct = CorrectExFactory;
-      ex9999_888.answer = AnswerExFactory;
-      return ex9999_888;
-    })();
+    ex.prepare = function() {
+      // ex.q = angular.copy(ex.data);
+      ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+      ex.showCorr = false;
+      ex.showAnsw = false;
+      $rootScope.$emit('show_question_result', ex.qStr, false);
+      ex.q.forEach(function(q) {
+        delete q.correct;
+      });
+    };
+    ex.correct = CorrectExFactory;
+    ex.answer = AnswerExFactory;
+    ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+    ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+    return ex;
+  };
