@@ -28,18 +28,18 @@
 
 
     <!-- Exercice 1.1 -->
-    <question-box ex="ex1_1">
+    <question-box ex="ex[1]">
       <div class="row">
         <div class="col-xs-12">
           <table>
-            <tr ng-repeat="q in ex1_1.q">
+            <tr ng-repeat="q in ex[1].q">
               <td>{{$index+1}}. {{q.text}}</td>
               <td>
                 <select ng-model="q.ua">
-                  <option ng-repeat="answ in ex1_1.allAnswers" value="{{answ.id}}">{{answ.ca}}</option>
+                  <option ng-repeat="answ in ex[1].allAnswers" value="{{answ.id}}">{{answ.ca}}</option>
                 </select>
               </td>
-              <td> <resultat ex="{{ex1_1.qStr}}" q="q"></resultat> </td>
+              <td> <resultat ex="{{ex[1].qStr}}" q="q"></resultat> </td>
             </tr>
           </table>
         </div>
@@ -47,16 +47,16 @@
     </question-box>
 
     <!-- Exercice 1.2 -->
-    <question-box ex="ex1_2">
+    <question-box ex="ex[2]">
       <div class="row">
         <div class="col-xs-12">
           <p>1<br/>
             <span class="dial-A">A: </span>I saw Brian a few days ago.<br/>
-            <text-q ex="ex1_2" num="0"  br></text-q>
+            <text-q ex="ex[2]" num="0"  br></text-q>
             <span class="dial-A">A: </span>He's at university.<br/>
-            <text-q ex="ex1_2" num="1"  br></text-q>
+            <text-q ex="ex[2]" num="1"  br></text-q>
             <span class="dial-A">A: </span>Psychology.<br/>
-            <text-q ex="ex1_2" num="2"  br></text-q>
+            <text-q ex="ex[2]" num="2"  br></text-q>
             <span class="dial-A">A: </span>Yes, he says it's a very good course.<br/>
           </p>
         </div>
@@ -65,11 +65,11 @@
       <div class="row">
         <div class="col-xs-12">
           <p>2<br/>
-            <text-q ex="ex1_2" num="3"  br></text-q>
-            <text-q ex="ex1_2" num="4"  br></text-q>
+            <text-q ex="ex[2]" num="3"  br></text-q>
+            <text-q ex="ex[2]" num="4"  br></text-q>
             <span class="dial-A">A: </span>What about Daniel? Is he OK?<br/>
-            <text-q ex="ex1_2" num="5"  br></text-q>
-            <text-q ex="ex1_2" num="6"  br></text-q>
+            <text-q ex="ex[2]" num="5"  br></text-q>
+            <text-q ex="ex[2]" num="6"  br></text-q>
           </p>
         </div>
       </div>
@@ -77,23 +77,23 @@
 
 
     <!-- Exercice 1.3 -->
-    <question-box ex="ex1_3">
+    <question-box ex="ex[3]">
       <p>
-        <text-q ex="ex1_3" num="0"  br></text-q>
-        <text-q ex="ex1_3" num="1"  br></text-q>
-        <text-q ex="ex1_3" num="2"  br></text-q>
-        <text-q ex="ex1_3" num="3"  br></text-q>
-        <text-q ex="ex1_3" num="4"  br></text-q>
-        <text-q ex="ex1_3" num="5"  br></text-q>
-        <text-q ex="ex1_3" num="6"  br></text-q>
-        <text-q ex="ex1_3" num="7"  br></text-q>
-        <text-q ex="ex1_3" num="8"  br></text-q>
-        <text-q ex="ex1_3" num="9"  br></text-q>
+        <text-q ex="ex[3]" num="0"  br></text-q>
+        <text-q ex="ex[3]" num="1"  br></text-q>
+        <text-q ex="ex[3]" num="2"  br></text-q>
+        <text-q ex="ex[3]" num="3"  br></text-q>
+        <text-q ex="ex[3]" num="4"  br></text-q>
+        <text-q ex="ex[3]" num="5"  br></text-q>
+        <text-q ex="ex[3]" num="6"  br></text-q>
+        <text-q ex="ex[3]" num="7"  br></text-q>
+        <text-q ex="ex[3]" num="8"  br></text-q>
+        <text-q ex="ex[3]" num="9"  br></text-q>
       </p>
     </question-box>
 
     <!-- Exercice 1.4 -->
-    <question-box ex="ex1_4">
+    <question-box ex="ex[4]">
       <div class="row">
         <p class="ex-tit">
           <opcio word="start"></opcio>
@@ -106,11 +106,11 @@
       <div class="row">
         <div class="col-xs-12">
           <p>
-            <text-q ex="ex1_4" num="0" br></text-q>
-            <text-q ex="ex1_4" num="1" br></text-q>
-            <text-q ex="ex1_4" num="2" br></text-q>
-            <text-q ex="ex1_4" num="3" br></text-q>
-            <text-q ex="ex1_4" num="4" br></text-q>
+            <text-q ex="ex[4]" num="0" br></text-q>
+            <text-q ex="ex[4]" num="1" br></text-q>
+            <text-q ex="ex[4]" num="2" br></text-q>
+            <text-q ex="ex[4]" num="3" br></text-q>
+            <text-q ex="ex[4]" num="4" br></text-q>
           </p>
         </div>
       </div>

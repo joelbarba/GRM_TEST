@@ -8,8 +8,8 @@ angular.module('myApp.unit1', ['ngRoute'])
   });
 }])
 
-.controller('Unit1Ctrl', ['$scope', '$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher', 'Unit1',
-function($scope, $rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher, Unit1) {
+.controller('Unit1Ctrl', ['Unit1', '$scope',
+  function(Unit1, $scope) {
 
   // ex = exercice
   // ca = correct answer
@@ -17,10 +17,7 @@ function($scope, $rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Tea
   // q = question
 
   // Object for question 1 1
-  $scope.ex1_1 = Unit1.ex[1]();
-  $scope.ex1_2 = Unit1.ex[2]();
-  $scope.ex1_3 = Unit1.ex[3]();
-  $scope.ex1_4 = Unit1.ex[4]();
+  $scope.ex = Unit1.ex;
 
   Unit1.refreshPage();
 

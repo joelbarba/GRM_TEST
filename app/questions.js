@@ -5,7 +5,7 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 
     var unit = { ex: [], unitNum: 1 };
 
-    unit.ex[1] = function() {
+    unit.ex[1] = (function() {
       var ex = {};
       ex.unit = unit.unitNum;
       ex.qNum = 1;
@@ -23,6 +23,7 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
         { id: 8, text : "We're going to get wet",                   ca: "It's starting to rain." }
       ];
       ex.prepare = function() {
+        console.log('prepare1');
         ex.q = ArrayHelper.unorderArray(ex.data);
         ex.allAnswers = ArrayHelper.unorderArray(ex.data);
         ex.allAnswers.unshift({ id: 0, ca:'' });
@@ -46,9 +47,9 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
       ex.prepare();
       return ex;
-    };
+    }());
 
-    unit.ex[2] = function() {
+    unit.ex[2] = (function() {
       var ex = {};
       ex.unit = unit.unitNum;
       ex.qNum = 2;
@@ -87,9 +88,9 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
       ex.prepare();
       return ex;
-    };
+    }());
 
-    unit.ex[3] = function() {
+    unit.ex[3] = (function() {
       var ex = {};
       ex.unit = unit.unitNum;
       ex.qNum = 3;
@@ -135,9 +136,9 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
       ex.prepare();
       return ex;
-    };
+    }());
 
-    unit.ex[4] = function() {
+    unit.ex[4] = (function() {
       var ex = {};
       ex.unit = unit.unitNum;
       ex.qNum = 4;
@@ -173,17 +174,17 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
       ex.prepare();
       return ex;
-    };
+    }());
 
     unit.refreshPage = function() {
       unit.ex.forEach(function(ex, num) {
-        ex.isExpanded = (num + 1 === Teacher.getCurrentQuestion());
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
       });
     };
     $rootScope.$on('refresh_page', unit.refreshPage);
 
+    Teacher.iniScore(unit);
+
     return unit;
 }]);
-
-
 

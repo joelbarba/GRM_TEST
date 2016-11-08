@@ -267,19 +267,17 @@ ngApp.factory('ArrayHelper', [function() {
 
 
 // Service to control the sequence
-ngApp.factory('Teacher', ['$rootScope', function($rootScope) {
-  var currentUnit = 1;
-  var currentQuestion = 1;
+ngApp.factory('Teacher', ['$rootScope', '$timeout',
+function($rootScope, $timeout) {
+  var currentUnit;
+  var currentQuestion;
   var score;
 
   return {
     reset : function() {
       currentUnit = 1;
-      currentQuestion = 1;
-      score = [
-        [[],[],[],[]],
-        [[],[],[],[],[]]
-      ];
+      currentQuestion = 4;
+      score = {};
     },
     getCurrentUnit: function() {
       return currentUnit;
@@ -287,56 +285,69 @@ ngApp.factory('Teacher', ['$rootScope', function($rootScope) {
     getCurrentQuestion: function() {
       return currentQuestion;
     },
-    isUnlock: function(unit, question) {
-      return (currentUnit >= unit && currentQuestion >= question);
-    },
     getLastScore: function(unit, question) {
-      unit--; question--;
-      if (score.length > unit) {
-        if (score[unit].length > question) {
-          if (score[unit][question].length > 0) {
-            return score[unit][question][score[unit][question].length - 1].perScore;
+      var unitProp = 'unit_' + unit;
+      var exProp = 'ex_' + question;
+      if (score.hasOwnProperty(unitProp)) {
+        if (score[unitProp].hasOwnProperty(exProp)) {
+          if (score[unitProp][exProp].length > 0) {
+            return score[unitProp][exProp][score[unitProp][exProp].length - 1].perScore;
           }
         }
       }
       return 0;
     },
     getAtempts: function(unit, question) {
-      unit--; question--;
-      if (score.length > unit) {
-        if (score[unit].length > question) {
-          if (score[unit][question].length > 0) {
-            return score[unit][question].length;
-          }
+      var unitProp = 'unit_' + unit;
+      var exProp = 'ex_' + question;
+      if (score.hasOwnProperty(unitProp)) {
+        if (score[unitProp].hasOwnProperty(exProp)) {
+          return score[unitProp][exProp].length;
         }
       }
       return 0;
     },
+    // Create a property in score for the unit, and an array for each question
+    iniScore: function(unit) {
+      var unitProp = 'unit_' + unit.unitNum;
+      if (!score.hasOwnProperty(unitProp)) {
+        score[unitProp] = {};
+      }
+      unit.ex.forEach(function(q, num) {
+        var exProp = 'ex_' + (num);
+        score[unitProp][exProp] = [];
+      });
+    },
     setScore: function(ex) {
-      var unit = ex.unit - 1;
-      var question = ex.qNum - 1;
-      if (score.length > unit) {
-        if (score[unit].length > question) {
+      var unitProp = 'unit_' + ex.unit;
+      var exProp = 'ex_' + ex.qNum;
 
-          // Set the new score
-          var newScore = {
-            moment: new Date(),
-            perScore: 0,
-            totalAns: ex.q.length,
-            correctAns: 0
-          };
-          ex.q.forEach(function(q) {
-            if (q.correct) newScore.correctAns++;
-          });
-          if (ex.q.length > 0) {
-            newScore.perScore = Math.round(newScore.correctAns / ex.q.length * 10000) / 100;
-          }
-          score[unit][question].push(newScore);
-          if (newScore.totalAns === newScore.correctAns && currentQuestion <= (question + 1)) {
-            currentQuestion = question + 2;
-            $rootScope.$emit('refresh_page');
-          }
+      // Set the new score
+      var newScore = {
+        moment: new Date(),
+        perScore: 0,
+        totalAns: ex.q.length,
+        correctAns: 0
+      };
+      ex.q.forEach(function(q) {
+        if (q.correct) newScore.correctAns++;
+      });
+      if (ex.q.length > 0) {
+        newScore.perScore = Math.round(newScore.correctAns / ex.q.length * 10000) / 100;
+      }
+      score[unitProp][exProp].push(newScore);
+
+      // It the score is 100%, forward to the next question
+      if (newScore.totalAns === newScore.correctAns) {
+        currentQuestion = ex.qNum + 1;
+        if (!score[unitProp].hasOwnProperty('ex_' + currentQuestion)) { // next unit
+          currentQuestion = 1;
+          currentUnit++;
         }
+        $timeout(function() {
+          $rootScope.$emit('refresh_page');
+        }, 1000);
+
       }
     }
   };
