@@ -40,7 +40,7 @@ ngApp.directive('resultat', ['$rootScope', function($rootScope) {
   varTemplate += '    <span ng-show="correct"  class="glyphicon glyphicon-ok"></span>';
   varTemplate += '    <span ng-show="!correct" class="glyphicon glyphicon-remove"></span>';
   varTemplate += '  </span>';
-  varTemplate += '  <span ng-show="showAnsw" class="answ">{{canswer}}</span>';
+  varTemplate += '  <span ng-show="showAnsw" class="answ">{{q.ca}}</span>';
   varTemplate += '</span>';
 
   return {
@@ -55,7 +55,6 @@ ngApp.directive('resultat', ['$rootScope', function($rootScope) {
 
       $scope.showCorr = false;
       $scope.showAnsw = false;
-      $scope.canswer  = $scope.q.ca;
 
       // Listen the event to show the result
       $rootScope.$on('show_question_result', function(event, ex, resp) {
@@ -107,11 +106,11 @@ ngApp.directive('textQ', [function() {
   var varTemplate = '';
 
   varTemplate += '<span>';
+  varTemplate += ' <br ng-if="(Number(num) === 0 || !ex.q[num].fix)"/>';
   varTemplate += ' <span ng-if="isTab" style="margin-left: 22px"></span>';
   varTemplate += ' <span class="dial">{{ex.q[num].t1}} <input ng-model="ex.q[num].ua" class="text-inline-answ"/> {{ex.q[num].t2}} </span>';
   varTemplate += ' <span ng-if="isHint" class="dial-tip">{{ex.q[num].hint}}</span>';
   varTemplate += ' <resultat ex="{{ex.qStr}}" q="ex.q[num]"></resultat>';
-  varTemplate += ' <br ng-if="isSalt"/>';
   varTemplate += '</span>';
 
   return {
@@ -123,8 +122,6 @@ ngApp.directive('textQ', [function() {
       num  : '@'
     },
     link     : function($scope, element, attr) {
-
-      $scope.isSalt = (attr.hasOwnProperty('br'));
       $scope.isTab = (attr.hasOwnProperty('tab'));
       $scope.isHint = $scope.ex.q[$scope.num].hasOwnProperty('hint');
     }
@@ -244,21 +241,34 @@ ngApp.factory('ArrayHelper', [function() {
   return {
     // Order randomly a given array
     unorderArray : function(inputArray) {
-      var inArr = angular.copy(inputArray);
+      var inArr = [];
       var outArr = [];
+      inputArray.forEach(function(item) {
+        if (item.hasOwnProperty('fix') && inArr.length > 0) {
+          inArr[inArr.length - 1].push(item);
+        } else {
+          inArr.push([item]);
+        }
+      });
+      console.log('inArr', inArr);
 
       while (inArr.length > 0) {
         var sel = Math.floor(Math.random() * inArr.length);
-        outArr.push(inArr[sel]);
+        inArr[sel].forEach(function(item) {
+          outArr.push(item);
+        });
         inArr.splice(sel, 1);
       }
+      console.log('outArr', outArr);
       return outArr;
     },
     // Set the number at the beginning of each question (t1)
     setQNum: function(ex) {
       var outArr = angular.copy(ex);
       outArr.forEach(function(q, num) {
+        if (!q.hasOwnProperty('fix')) {
           q.t1 = (num + 1) + ". " + q.t1;
+        }
       });
       return outArr;
     }
@@ -276,7 +286,7 @@ function($rootScope, $timeout) {
   return {
     reset : function() {
       currentUnit = 1;
-      currentQuestion = 4;
+      currentQuestion = 1;
       score = {};
     },
     getCurrentUnit: function() {
