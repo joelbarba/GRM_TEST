@@ -276,15 +276,15 @@ ngApp.factory('Unit2', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.title = ex.unit + '.' + ex.qNum + ' ';
       ex.title += "Use the following verbs to complete the sentences. Sometimes you need the negative:";
       ex.data = [
-        { ca: ["goes"],                                 t1: "1. The earth",             t2:"round the sun." },
-        { ca: ["doesn't grow", "does not"],             t1: "2. Rice",                  t2:"in Britain." },
-        { ca: ["rises"],                                t1: "3. The sun",               t2:"in the east." },
-        { ca: ["make"],                                 t1: "4. Bees",                  t2:"honey" },
-        { ca: ["don't eat", "do not eat"],              t1: "5. Vegetarians",           t2:"meat." },
-        { ca: ["doesn't believe", "does not believe"],  t1: "6. An atheist",            t2:"in god." },
-        { ca: ["translates"],                           t1: "7. An interpreter",        t2:"from one language into another." },
-        { ca: ["don't tell", "do not tell"],            t1: "8. Liars are people who",  t2:"the truth." },
-        { ca: ["flows"],                                t1: "9. The River Amazon",      t2:"into the Atlantic Ocean." }
+        { ca: ["goes"],                                 t1: "The earth",             t2:"round the sun." },
+        { ca: ["doesn't grow", "does not"],             t1: "Rice",                  t2:"in Britain." },
+        { ca: ["rises"],                                t1: "The sun",               t2:"in the east." },
+        { ca: ["make"],                                 t1: "Bees",                  t2:"honey" },
+        { ca: ["don't eat", "do not eat"],              t1: "Vegetarians",           t2:"meat." },
+        { ca: ["doesn't believe", "does not believe"],  t1: "An atheist",            t2:"in god." },
+        { ca: ["translates"],                           t1: "An interpreter",        t2:"from one language into another." },
+        { ca: ["don't tell", "do not tell"],            t1: "Liars are people who",  t2:"the truth." },
+        { ca: ["flows"],                                t1: "The River Amazon",      t2:"into the Atlantic Ocean." }
       ];
 
       ex.prepare = function() {
@@ -313,12 +313,12 @@ ngApp.factory('Unit2', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.title = ex.unit + '.' + ex.qNum + ' ';
       ex.title += "You ask Lisa questions about herself and her family. Write the questions.";
       ex.data = [
-        { ca: ["How often do you play tennis"],       t1: "1. You know that Lisa plays tennis. You want to know how often. Ask her.",                 t3:"?" },
-        { ca: ["How often do you go to the cinema"],  t1: "2. Perhaps Lisa's sister plays tennis too. You want to know how often. Ask Lisa.",                   t3:"?", hint: "your sister" },
-        { ca: ["Which newspaper do you read"],        t1: "3. You know that Lisa reads a newspaper every day. You want to know which one. Ask her.",  t3:"?" },
-        { ca: ["What does your brother do"],          t1: "4. You know that Lisa's brother works. You want to know what he does. Ask Lisa.",          t3:"?" },
-        { ca: ["How often do you go to the cinema"],  t1: "5. You know that Lisa goes to the cinema a lot. You want to know how often. Ask her.",     t3:"?" },
-        { ca: ["Where do your grandparents live"],    t1: "6. You don't know where Lisa's grandparents live. You want to know. Ask Lisa.",            t3:"?" }
+        { ca: ["How often do you play tennis"],       t1: "You know that Lisa plays tennis. You want to know how often. Ask her.",                 t3:"?" },
+        { ca: ["Does your sister play tennis"],       t1: "Perhaps Lisa's sister plays tennis too. You want to know. Ask Lisa.",                   t3:"?", hint: "your sister" },
+        { ca: ["Which newspaper do you read"],        t1: "You know that Lisa reads a newspaper every day. You want to know which one. Ask her.",  t3:"?" },
+        { ca: ["What does your brother do"],          t1: "You know that Lisa's brother works. You want to know what he does. Ask Lisa.",          t3:"?" },
+        { ca: ["How often do you go to the cinema"],  t1: "You know that Lisa goes to the cinema a lot. You want to know how often. Ask her.",     t3:"?" },
+        { ca: ["Where do your grandparents live"],    t1: "You don't know where Lisa's grandparents live. You want to know. Ask Lisa.",            t3:"?" }
       ];
 
       ex.prepare = function() {
@@ -347,11 +347,11 @@ ngApp.factory('Unit2', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.title = ex.unit + '.' + ex.qNum + ' ';
       ex.title += "Complete using the following:.";
       ex.data = [
-        { ca: ["I suggest"],    t1: "1. Mr Evans is not in the office today.", t2:"you try calling him tomorrow." },
-        { ca: ["I promise"],    t1: "2. I won't tell anybody what you said", t2:"." },
-        { ca: ["I insist"],     t1: "3. (In a restaurant) You must let me pay for the meal", t2:"." },
-        { ca: ["I apologise"],  t1: "4. ", t2:"for what I did. It won't happen again." },
-        { ca: ["I recommend"],  t1: "5. The new restaurant in Hill Street is very good.", t2:"it." }
+        { ca: ["I suggest"],    t1: "Mr Evans is not in the office today.", t2:"you try calling him tomorrow." },
+        { ca: ["I promise"],    t1: "I won't tell anybody what you said.", t2:"." },
+        { ca: ["I insist"],     t1: "(In a restaurant) You must let me pay for the meal.", t2:"." },
+        { ca: ["I apologise"],  t1: "", t2:"for what I did. It won't happen again." },
+        { ca: ["I recommend"],  t1: "The new restaurant in Hill Street is very good.", t2:"it." }
       ];
 
       ex.prepare = function() {

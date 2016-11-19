@@ -71,7 +71,7 @@ ngApp.directive('resultat', ['$rootScope', function($rootScope) {
           $scope.showAnsw = resp;
         }
       });
-    },
+    }
   };
 }]);
 
