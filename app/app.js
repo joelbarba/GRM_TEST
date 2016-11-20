@@ -250,7 +250,6 @@ ngApp.factory('ArrayHelper', [function() {
           inArr.push([item]);
         }
       });
-      console.log('inArr', inArr);
 
       while (inArr.length > 0) {
         var sel = Math.floor(Math.random() * inArr.length);
@@ -259,15 +258,16 @@ ngApp.factory('ArrayHelper', [function() {
         });
         inArr.splice(sel, 1);
       }
-      console.log('outArr', outArr);
       return outArr;
     },
     // Set the number at the beginning of each question (t1)
     setQNum: function(ex) {
       var outArr = angular.copy(ex);
-      outArr.forEach(function(q, num) {
+      var num = 1;
+      outArr.forEach(function(q) {
         if (!q.hasOwnProperty('fix')) {
-          q.t1 = (num + 1) + ". " + q.t1;
+          q.t1 = num + ". " + q.t1;
+          num++;
         }
       });
       return outArr;

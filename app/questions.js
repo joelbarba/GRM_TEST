@@ -1,5 +1,8 @@
 var ngApp = angular.module('myApp');
 
+// -------------------------------------------------------------------------
+// Unit 1
+// -------------------------------------------------------------------------
 ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
   function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
 
@@ -189,7 +192,9 @@ ngApp.factory('Unit1', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 }]);
 
 
-
+// -------------------------------------------------------------------------
+// Unit 2
+// -------------------------------------------------------------------------
 ngApp.factory('Unit2', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
   function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
 
@@ -386,3 +391,252 @@ ngApp.factory('Unit2', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
   }]);
 
 
+// -------------------------------------------------------------------------
+// Unit 3
+// -------------------------------------------------------------------------
+ngApp.factory('Unit3', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 3 };
+
+    unit.ex[1] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 1;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Are the underlined verbs right or wrong? Write the correct form when they are wrong..";
+      ex.data = [
+        { ca: [""],                               t1: "Water ",                                 t2:"boils",                   t3:" at 100 degrees Celsius." },
+        { ca: ["is boiling", "'s boiling"],       t1: "The water ",                             t2:"boils",                   t3:". Can you turn it off?" },
+        { ca: ["is trying",  "'s trying"],        t1: "Look! That man ",                        t2:"tries",                   t3:" to open the door of your car." },
+        { ca: ["are they talking"],               t1: "Can you hear those people? What ",       t2:"do they talk",            t3:" about?" },
+        { ca: [""],                               t1: "The moon ",                              t2:"goes",                    t3:" round the earth in about 27 days." },
+        { ca: ["It is getting", "It's getting"],  t1: "I must go now. ",                        t2:"It gets",                 t3:" late." },
+        { ca: [""],                               t1: "",                                       t2:"I usually go",            t3:" to work by car." },
+        { ca: ["I am coming", "I'm coming"],      t1: "'Hurry up! It's time to leave.' 'OK, ",  t2:"I come",                  t3:".'" },
+        { ca: ["are you getting"],                t1: "I hear you've got a new job. How ",      t2:"do you get",              t3:" on?" },
+        { ca: ["He always gets"],                 t1: "Paul is never late. ",                   t2:"He's always getting",     t3:" to work on time." },
+        { ca: [""],                               t1: "They don't get on well. ",               t2:"They're always arguing",  t3:"." }
+      ];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[2] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 2;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Put the verb into the correct form, present continuous or present simple.";
+      ex.data = [
+        { t1: "Let’s go out. ",                                hint: "(it / not / rain)",      t2: " now." },
+        { t1: "Julia is very good at languages. ",             hint: "(she / speak)",          t2: " four languages very well." },
+        { t1: "Hurry up! ",                                    hint: "(everybody / wait)",     t2: " for you." },
+        { t1: "'",                                             hint: "(you / listen)",         t2: " to the radio?' 'No, you can turn it off.'" },
+        { t1: "'",                                             hint: "(you / listen)",         t2: " to the radio every day?' 'No, just occasionally.'" },
+        { t1: "The River Nile ",                               hint: "(flow)",                 t2: " into the Mediteranean." },
+        { t1: "The river ",                                    hint: "(flow)",                 t2: " very fast today - much faster than usual." },
+        { t1: "",                                              hint: "(we / usually / grow)",  t2: " vegetables in our garden" },
+        { fix: true, t1: ", but this year",                    hint: "(we / not / grow)",      t2: " any." },
+        { t1: "A: How's your English? B: Not bad. I think",    hint: "(it / improve)",         t2: "slowly." },
+        { t1: "Rachel is in New York right now.",              hint: "(she / stay)",           t2: "at the Park Hotel." },
+        { fix: true, t1: "",                                   hint: "(she / always / stay)",  t2: "there when she's in New York." },
+        { t1: "Can we stop walking soon?",                     hint: "(I / start)",            t2: "to feel tired." },
+        { t1: "A: Can you drive? B: ",                         hint: "(I / learn)",            t2: "" },
+        { fix: true, t1: "My father",                          hint: "(teach)",                t2: "me." },
+        { t1: "Normally",                                      hint: "(I / finish)",           t2: "work at five" },
+        { fix: true, t1: ", but this week",                    hint: "(I / work)",             t2: "until six to earn a little more money." },
+        { t1: "My parents",                                    hint: "(live)",                 t2: "in Manchester. They were born there and have never lived anywhere else." },
+        { fix: true, t1: "Where",                              hint: "(your parents / live)",  t2: "?" },
+        { t1: "Sonia",                                         hint: "(look)",                 t2: "for a place to live." },
+        { fix: true, t1: "",                                   hint: "(she / stay)",           t2: "with her sister until she finds somewhere." },
+        { t1: "A: What",                                       hint: "(your brother / do)",    t2: "?" },
+        { fix: true, t1: "B: He's an architect, but",          hint: "(he / not / work)",      t2: "at the moment." },
+        { t1: "[at a party]",                                  hint: "(I usually enjoy)",      t2: "parties" },
+        { fix: true, t1: ", but",                              hint: "(I / not / enjoy)",      t2: "this one very much." }
+      ];
+      ex.data[0].ca  = ["It is not raining", "It's not raining", "It isn't raining"];
+      ex.data[1].ca  = ["She speaks"];
+      ex.data[2].ca  = ["Everybody's waiting", "Everybody is waiting"];
+      ex.data[3].ca  = ["Are you listening"];
+      ex.data[4].ca  = ["Do you listen"];
+      ex.data[5].ca  = ["flows"];
+      ex.data[6].ca  = ["is flowing", "'s flowing"];
+      ex.data[7].ca  = ["We usually grow"];
+      ex.data[8].ca  = ["we are not growing", "we aren't growing", "we're not growing"];
+      ex.data[9].ca  = ["it is improving", "it's improving"];
+      ex.data[10].ca = ["She is staying", "She's staying"];
+      ex.data[11].ca = ["She always stays"];
+      ex.data[12].ca = ["I am starting", "I'm starting"];
+      ex.data[13].ca = ["I am learning", "I'm learning"];
+      ex.data[14].ca = ["is teaching", "'s teaching"];
+      ex.data[15].ca = ["I finish"];
+      ex.data[16].ca = ["I am working", "I'm working"];
+      ex.data[17].ca = ["live"];
+      ex.data[18].ca = ["do your parents live"];
+      ex.data[19].ca = ["is looking", "'s looking"];
+      ex.data[20].ca = ["She is staying", "She's staying"];
+      ex.data[21].ca = ["does your brother do"];
+      ex.data[22].ca = ["he is not working", "he's not working", "he isn't working"];
+      ex.data[23].ca = ["I usually enjoy"];
+      ex.data[24].ca = ["I am not enjoying", "I'm not enjoying"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[3] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 3;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Finish B's sentences. Use always -ing.";
+      ex.data = [
+        { t1: "A: I've lost my phone again.",                  t2: "B: Not again!" },
+        { t1: "A: The car has broken down again.",             t2: "B: That car is useless. It" },
+        { t1: "A: Look! You've made the same mistake again,",  t2: "B: Oh no, not again! I" },
+        { t1: "A: Oh, I've forgotten my glasses again.",       t2: "B: Typical!" }
+      ];
+      ex.data[0].ca = ["You are always losing your phone",       "You're always losing your phone"];
+      ex.data[1].ca = ["is always breaking down",                "'s always breaking down"];
+      ex.data[2].ca = ["am always making the same mistake",      "'m always making the same mistake"];
+      ex.data[3].ca = ["You are always forgetting your glasses", "You're always forgetting your glasses"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+/*
+// -------------------------------------------------------------------------
+// Unit 9999
+// -------------------------------------------------------------------------
+ngApp.factory('Unit9999', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 9999 };
+
+    unit.ex[888] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 888;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.data = [
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      ];
+      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[888] = (function() {}());
+    unit.ex[888] = (function() {}());
+    unit.ex[888] = (function() {}());
+    unit.ex[888] = (function() {}());
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+ */

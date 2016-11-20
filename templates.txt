@@ -103,6 +103,9 @@ angular.module('myApp.unit9999', ['ngRoute'])
 // 9999 = num
 // 888 = ex
 
+// -------------------------------------------------------------------------
+// Unit 9999
+// -------------------------------------------------------------------------
 ngApp.factory('Unit9999', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
   function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
 
@@ -125,7 +128,7 @@ ngApp.factory('Unit9999', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Ans
       { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
       { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
       { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      { t1: "xxxxxxxxxxx ", fix: true,   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
       ];
       ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
       ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
