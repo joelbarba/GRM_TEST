@@ -84,15 +84,10 @@ angular.module('myApp.unit9999', ['ngRoute'])
     templateUrl: 'unit9999/unit9999.html',
     controller: 'Unit9999Ctrl'
   });
-}])
-
-.controller('Unit9999Ctrl', ['Unit9999', '$scope',
+}]).controller('Unit9999Ctrl', ['Unit9999', '$scope',
   function(Unit9999, $scope) {
-
-  $scope.ex = Unit9999.ex;
-
-  Unit9999.refreshPage();
-
+    $scope.ex = Unit9999.ex;
+    Unit9999.refreshPage();
 }]);
 
 

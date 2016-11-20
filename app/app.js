@@ -108,7 +108,7 @@ ngApp.directive('textQ', [function() {
   varTemplate += '<span>';
   varTemplate += ' <br ng-if="(Number(num) === 0 || !ex.q[num].fix)"/>';
   varTemplate += ' <span ng-if="isTab" style="margin-left: 22px"></span>';
-  varTemplate += ' <span class="dial">{{ex.q[num].t1}} <input ng-model="ex.q[num].ua" class="text-inline-answ"/> {{ex.q[num].t2}} </span>';
+  varTemplate += ' <span class="dial">{{ex.q[num].t1}} <input ng-model="ex.q[num].ua" class="text-inline-answ" style="width: {{inputWidth}}px;"/> {{ex.q[num].t2}} </span>';
   varTemplate += ' <span ng-if="isHint" class="dial-tip">{{ex.q[num].hint}}</span>';
   varTemplate += ' <resultat ex="{{ex.qStr}}" q="ex.q[num]"></resultat>';
   varTemplate += '</span>';
@@ -119,11 +119,16 @@ ngApp.directive('textQ', [function() {
     template : varTemplate,
     scope    : {
       ex   : '=',
-      num  : '@'
+      num  : '@',
+      width : '@'
     },
     link     : function($scope, element, attr) {
       $scope.isTab = (attr.hasOwnProperty('tab'));
       $scope.isHint = $scope.ex.q[$scope.num].hasOwnProperty('hint');
+      $scope.inputWidth = '180';
+      if (!!$scope.width) {
+        $scope.inputWidth = $scope.width;
+      }
     }
   };
 }]);

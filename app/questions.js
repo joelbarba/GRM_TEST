@@ -750,6 +750,227 @@ ngApp.factory('Unit4', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 
 
 
+// -------------------------------------------------------------------------
+// Unit 5
+// -------------------------------------------------------------------------
+ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 5 };
+
+    unit.ex[1] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 1;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Read what Laura says about a typical working day:";
+      ex.data = [
+      { t1: "",      t2: " at 7 o'clock.." },
+      { t1: "She ",  t2: " a big breakfast." },
+      { t1: "She ",  t2: "." },
+      { t1: "It ",   t2: " to get to work." },
+      { t1: "",      t2: " at 8:15." },
+      { t1: "",      t2: " lunch." },
+      { t1: "",      t2: " at 5 o'clock." },
+      { t1: "",      t2: "tired " },
+      { fix: true, t1: "when ",   t2: " home." },
+      { t1: "",      t2: " a meal yesterday evening." },
+      { t1: "",      t2: " out yesterday evening." },
+      { t1: "",      t2: " at 11 o'clock." },
+      { t1: "",      t2: " well last night." }
+      ];
+      ex.data[0].ca  = ["She got up"];
+      ex.data[1].ca  = ["She had"];
+      ex.data[2].ca  = ["She walked to work"];
+      ex.data[3].ca  = ["It took her half an hour", "It took her about half an hour"];
+      ex.data[4].ca  = ["She started work"];
+      ex.data[5].ca  = ["She didn't have lunch", "She didn't have any lunch", "She did not have lunch", "She did not have any lunch"];
+      ex.data[6].ca  = ["eat lunch", "eat any lunch"];
+      ex.data[7].ca  = ["She finished work"];
+      ex.data[8].ca  = ["She was tired when she got home"];
+      ex.data[9].ca  = ["She cooked"];
+      ex.data[10].ca  = ["She didn't go", "She did not go"];
+      ex.data[11].ca  = ["She went to bed"];
+      ex.data[12].ca  = ["She slept"];
+
+      ex.prepare = function() {
+        ex.q = ArrayHelper.setQNum(ex.data);
+        // ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[2] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 2;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.data = [
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      ];
+      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[3] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 3;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.data = [
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      ];
+      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[4] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 4;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.data = [
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
+      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      ];
+      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+
 
 /*
 // -------------------------------------------------------------------------
