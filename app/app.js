@@ -128,6 +128,37 @@ ngApp.directive('textQ', [function() {
   };
 }]);
 
+ngApp.directive('textQF', [function() {
+  var varTemplate = '';
+
+  varTemplate += '<span>';
+  varTemplate += '  <input ng-model="ex.q[num].ua" style="position: absolute; left: {{p[0]}}px; top: {{p[1]}}px; width: {{p[2]}}px;" class="text-inline-answ"/>';
+  varTemplate += '  <span style="position: absolute; left: {{p[3]}}px; top: {{p[4]}}px;">';
+  varTemplate += '    <resultat ex="{{ex.qStr}}" q="ex.q[num]"></resultat>';
+  varTemplate += '  </span>';
+  varTemplate += '</span>';
+
+  return {
+    restrict : 'AE',
+    replace  : true,
+    template : varTemplate,
+    scope    : {
+      ex   : '=',
+      num  : '@',
+      pos  : '@'
+    },
+    link: function($scope) {
+      $scope.p = $scope.pos.split(',');
+      if ($scope.p.length < 4) {
+        $scope.p[3] = parseInt($scope.p[0]) + parseInt($scope.p[2]) + 4;
+        $scope.p[4] = parseInt($scope.p[1]) + 5;
+      }
+    }
+  };
+}]);
+
+
+
 ngApp.directive('textQA', [function() {
   var varTemplate = '';
 
@@ -286,7 +317,7 @@ function($rootScope, $timeout) {
   return {
     reset : function() {
       currentUnit = 1;
-      currentQuestion = 1;
+      currentQuestion = 2;
       score = {};
     },
     getCurrentUnit: function() {

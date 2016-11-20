@@ -565,6 +565,192 @@ ngApp.factory('Unit3', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 }]);
 
 
+
+// -------------------------------------------------------------------------
+// Unit 4
+// -------------------------------------------------------------------------
+ngApp.factory('Unit4', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 4 };
+
+    unit.ex[1] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 1;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Put the verb into the correct form, present continuous or present simple.";
+      ex.data = [
+        { t1: "Are you hungry? ",                          hint: "(you / want)",   t2: "something to eat?" },
+        { t1: "Don't put the dictionary away. ",           hint: "(I / use)",      t2: " it." },
+        { t1: "Don't put the dictionary away. ",           hint: "(I / need)",     t2: " it." },
+        { t1: "Who is that man? What ",                    hint: "(he / want)",    t2: "?" },
+        { t1: "Who is that man? Why ",                     hint: "(he / look)",    t2: " at us?" },
+        { t1: "Alan says he's 80 years old, but nobody ",  hint: "(believe)",      t2: " him." },
+        { t1: "She told me her name, but ",                hint: "(I / not / remember)",   t2: " it now." },
+        { t1: "",                                          hint: "(I / think)",        t2: " of selling my car. Would you be interested in buying it?" },
+        { t1: "",                                          hint: "(I / think)",        t2: " you should sell your car." },
+        { fix: true, t1: "",                               hint: "(you / not / use)",  t2: " it very often." },
+        { t1: "Air ",                                      hint: "(consist)",          t2: " mainly of nitrogen and oxygen." }
+      ];
+      ex.data[0].ca  = ["Do you want"];
+      ex.data[1].ca  = ["I'm using", "I am using"];
+      ex.data[2].ca  = ["I need"];
+      ex.data[3].ca  = ["does he want"];
+      ex.data[4].ca  = ["is he looking"];
+      ex.data[5].ca  = ["believes"];
+      ex.data[6].ca  = ["I don't remember", "I do not remember", "I can't remember", "I cannot remember"];
+      ex.data[7].ca  = ["I'm thinking", "I am thinking"];
+      ex.data[8].ca  = ["I think"];
+      ex.data[9].ca  = ["You don't use", "You do not use"];
+      ex.data[10].ca  = ["consists"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[2] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 2;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Use the words in brackets to make sentences. (You should also study Unit 3 before you do this exercise)";
+      ex.data = [
+      { ca: ["You do not seem very happy today", "You don't seem very happy today"] },
+      { ca: ["What are you doing?"] },
+      { ca: ["I'm thinking", "I am thinking"] },
+      { ca: ["Who does this umbrella belong to?"] },
+      { ca: ["The dinner smells good"] },
+      { ca: ["Is anybody sitting there?"] },
+      { ca: ["These gloves don't fit me", "These gloves do not fit me"] }
+      ];
+
+      ex.prepare = function() {
+        ex.q = angular.copy(ex.data);
+        // ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[3] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 3;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Are the underlined verbs right or wrong? Correct them where necessary.";
+      ex.data = [
+      { t1: "Nicky ",    t2: "is thinking",         t3: " of giving up her job." },
+      { t1: "",          t2: "Are you believing",   t3: " in God?" },
+      { t1: "",          t2: "I'm feeling",         t3: " hungry. Is there anything to eat?" },
+      { t1: "This sauce is great. ",    t2: "It's tasting",   t3: " really good." },
+      { t1: "",          t2: "I'm thinking ",       t3: "this is your key. Am I right?" }
+      ];
+      ex.data[0].ca  = [""];
+      ex.data[1].ca  = ["Do you believe"];
+      ex.data[2].ca  = ["", "I feel"];
+      ex.data[3].ca  = ["It tastes"];
+      ex.data[4].ca  = ["I think"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[4] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 4;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Complete the sentences using the most suitable form of be. Use am/is/are being (continuous) where possible; otherwise use am/is/are (simple).";
+      ex.data = [
+      { t1: "I can't understand why ",                     t2: " so selfish. He isn't usually like that." },
+      { t1: "Sarah ",                                      t2: " very nice to me at the moment. I wonder why." },
+      { t1: "You'll like Sophie when you meet her. She ",  t2: " very nice." },
+      { t1: "You're usually very patient, so why ",        t2: " so unreasonable about waiting ten more minutes?" },
+      { t1: "Why isn't Steve at work today? ",             t2: " ill?" }
+      ];
+      ex.data[0].ca  = ["he is being", "he's being"];
+      ex.data[1].ca  = ["'s being", "is being"];
+      ex.data[2].ca  = ["'s", "is"];
+      ex.data[3].ca  = ["are you being"];
+      ex.data[4].ca  = ["Is he"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+
+
 /*
 // -------------------------------------------------------------------------
 // Unit 9999
