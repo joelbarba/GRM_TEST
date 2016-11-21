@@ -770,7 +770,7 @@ ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       { t1: "She ",  t2: " a big breakfast." },
       { t1: "She ",  t2: "." },
       { t1: "It ",   t2: " to get to work." },
-      { t1: "",      t2: " at 8:15." },
+      { t1: "",      t2: " at 8:45." },
       { t1: "",      t2: " lunch." },
       { t1: "",      t2: " at 5 o'clock." },
       { t1: "",      t2: "tired " },
@@ -781,14 +781,14 @@ ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       { t1: "",      t2: " well last night." }
       ];
       ex.data[0].ca  = ["She got up"];
-      ex.data[1].ca  = ["She had"];
-      ex.data[2].ca  = ["She walked to work"];
-      ex.data[3].ca  = ["It took her half an hour", "It took her about half an hour"];
+      ex.data[1].ca  = ["had"];
+      ex.data[2].ca  = ["walked to work"];
+      ex.data[3].ca  = ["took her half an hour", "took her about half an hour"];
       ex.data[4].ca  = ["She started work"];
-      ex.data[5].ca  = ["She didn't have lunch", "She didn't have any lunch", "She did not have lunch", "She did not have any lunch"];
-      ex.data[6].ca  = ["eat lunch", "eat any lunch"];
-      ex.data[7].ca  = ["She finished work"];
-      ex.data[8].ca  = ["She was tired when she got home"];
+      ex.data[5].ca  = ["She didn't have", "She didn't have any", "She did not have", "She did not have any", "She didn't eat", "She didn't eat any lunch", "She did not eat", "She did not eat any lunch"];
+      ex.data[6].ca  = ["She finished work"];
+      ex.data[7].ca  = ["She was"];
+      ex.data[8].ca  = ["she got"];
       ex.data[9].ca  = ["She cooked"];
       ex.data[10].ca  = ["She didn't go", "She did not go"];
       ex.data[11].ca  = ["She went to bed"];
@@ -818,29 +818,29 @@ ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.qNum = 2;
       ex.qStr = ex.unit + '_' + ex.qNum;
       ex.title = ex.unit + '.' + ex.qNum + ' ';
-      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.title += "Complete the sentences using the following verbs in the correct form:";
       ex.data = [
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      { t1: "Mozart ",   t2: " more than 600 pieces of music." },
+      { t1: "'How did you learn to drive?' 'My father ",   t2: " me.'" },
+      { t1: "We couldn't afford to keep our car, so we ",   t2: " it." },
+      { t1: "Dave ",   t2: " down the stairs this morning " },
+      { fix: true, t1: "and ",   t2: " his leg." },
+      { t1: "Joe  ",   t2: " the ball to Sue, " },
+      { fix: true, t1: "who ",   t2: " it." },
+      { t1: "Ann ",   t2: " a lot of money yesterday." },
+      { fix: true, t1: "She",   t2: " a dress " },
+      { fix: true, t1: "which ",   t2: " £100." }
       ];
-      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[0].ca  = ["wrote"];
+      ex.data[1].ca  = ["taught"];
+      ex.data[2].ca  = ["sold"];
+      ex.data[3].ca  = ["fell"];
+      ex.data[4].ca  = ["hurt"];
+      ex.data[5].ca  = ["threw"];
+      ex.data[6].ca  = ["caught"];
+      ex.data[7].ca  = ["spent"];
+      ex.data[8].ca  = ["bought"];
+      ex.data[9].ca  = ["cost"];
 
       ex.prepare = function() {
         // ex.q = angular.copy(ex.data);
@@ -866,33 +866,25 @@ ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.qNum = 3;
       ex.qStr = ex.unit + '_' + ex.qNum;
       ex.title = ex.unit + '.' + ex.qNum + ' ';
-      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.title += "You ask James about his holiday. Write your questions.";
       ex.data = [
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      { t1: "A: Where ",   t2: "?" },
+      { t1: "A: How ",     t2: "? By car?" },
+      { t1: "A: It's a long way to drive. How long ", t2: " to get to Denver?" },
+      { t1: "A: Where ",   t2: "? In hotels?" },
+      { t1: "A: ",         t2: " good?", hint: "(weather)" },
+      { t1: "A: ",         t2: " the Grand Canyon?" }
       ];
-      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[0].ca  = ["did you go"];
+      ex.data[1].ca  = ["did you travel", "did you go"];
+      ex.data[2].ca  = ["did it take", "did it take you"];
+      ex.data[3].ca  = ["did you stay"];
+      ex.data[4].ca  = ["Was the weather"];
+      ex.data[5].ca  = ["Did you go to", "Did you see", "Did you visit"];
 
       ex.prepare = function() {
-        // ex.q = angular.copy(ex.data);
-        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.q = angular.copy(ex.data);
+        // ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
         ex.showCorr = false;
         ex.showAnsw = false;
         $rootScope.$emit('show_question_result', ex.qStr, false);
@@ -914,29 +906,27 @@ ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
       ex.qNum = 4;
       ex.qStr = ex.unit + '_' + ex.qNum;
       ex.title = ex.unit + '.' + ex.qNum + ' ';
-      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.title += "Complete the sentences. Put the verb into the correct form, positive or negative.";
       ex.data = [
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
-      { fix: true, t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." }
+      { t1: "It was warm, so I ",   hint: "(took)",   t2: " off my coat." },
+      { t1: "The film wasn't very good. I ",   hint: "(enjoy)",   t2: " it much." },
+      { t1: "I knew Sarah was busy, so I ",   hint: "(disturb)",   t2: " her." },
+      { t1: "We were very tired, so we ",   hint: "(leave)",   t2: " the party early." },
+      { t1: "The bed was very uncomfortable. I ",   hint: "(sleep)",   t2: " well." },
+      { t1: "The window was open and a bird ",   hint: "(fly)",   t2: " into the room." },
+      { t1: "The hotel wasn’t very expensive. It ",   hint: "(cost)",   t2: " much to stay there." },
+      { t1: "I was in a hurry, so I ",   hint: "(have)",   t2: " time to phone you." },
+      { t1: "It was hard carrying the bags. They ",   hint: "(be)",   t2: " very heavy." }
       ];
-      ex.data[0].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[1].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[2].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[3].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[4].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[5].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[6].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[7].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[8].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
-      ex.data[9].ca  = ["xxxxxxxxxx", "xxxxxxxxx"];
+      ex.data[0].ca  = ["took"];
+      ex.data[1].ca  = ["didn't enjoy", "did not enjoy"];
+      ex.data[2].ca  = ["didn't disturb", "did not disturb"];
+      ex.data[3].ca  = ["left"];
+      ex.data[4].ca  = ["didn't sleep", "did not sleep"];
+      ex.data[5].ca  = ["flew"];
+      ex.data[6].ca  = ["didn't cost", "did not cost"];
+      ex.data[7].ca  = ["didn't have", "did not have"];
+      ex.data[8].ca  = ["were"];
 
       ex.prepare = function() {
         // ex.q = angular.copy(ex.data);
