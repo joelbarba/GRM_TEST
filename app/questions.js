@@ -962,6 +962,246 @@ ngApp.factory('Unit5', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 
 
 
+// -------------------------------------------------------------------------
+// Unit 7
+// -------------------------------------------------------------------------
+ngApp.factory('Unit6', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 6 };
+
+    unit.ex[1] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 1;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "What were you doing at these times? Write sentences as in the examples. The past continuous is not always necessary (see the second example).";
+      ex.data = [
+      { t1: "", hint: "(at 8 o'clock yesterday evening)" },
+      { t1: "", hint: "(at 5 o'clock last Monday)" },
+      { t1: "", hint: "(at 10.15 yesterday morning)" },
+      { t1: "", hint: "(at 4.30 this morning)" },
+      { t1: "", hint: "(at 7.45 yesterday evening)" },
+      { t1: "", hint: "(half an hour ago)" }
+      ];
+      ex.data[0].ca  = ["Free response"];
+      ex.data[1].ca  = ["Free response"];
+      ex.data[2].ca  = ["Free response"];
+      ex.data[3].ca  = ["Free response"];
+      ex.data[4].ca  = ["Free response"];
+      ex.data[5].ca  = ["Free response"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = function() {
+        ex.q.forEach(function(q) {
+          q.correct = true;
+        });
+        ex.showCorr = true;
+        $rootScope.$emit('show_question_result', ex.qStr, ex.showCorr);
+        Teacher.setScore(ex);
+      };
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[2] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 2;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Use your own ideas to complete the sentences. Use the past continuous.";
+      ex.data = [
+      { t1: "Matt phoned while we ",                            t2: "." },
+      { t1: "The doorbell rang while I ",                       t2: "." },
+      { t1: "The car began to make a strange noise when we ",   t2: "." },
+      { t1: "Jessica fell asleep while she ",                   t2: "." },
+      { t1: "The television was on, but nobody ",               t2: "." }
+      ];
+      ex.data[0].ca  = ["Free response"];
+      ex.data[1].ca  = ["Free response"];
+      ex.data[2].ca  = ["Free response"];
+      ex.data[3].ca  = ["Free response"];
+      ex.data[4].ca  = ["Free response"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = function() {
+        ex.q.forEach(function(q) {
+          q.correct = true;
+        });
+        ex.showCorr = true;
+        $rootScope.$emit('show_question_result', ex.qStr, ex.showCorr);
+        Teacher.setScore(ex);
+      };
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[3] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 3;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Put the verb into the correct form, past continuous or past simple.";
+      ex.data = [
+      { t1: "I ",   hint: "(see)",   t2: " Sue in town yesterday," },
+      { fix: true, t1: "but she",   hint: "(not see)",   t2: " me." },
+      { t1: "She ",   hint: "(look)",   t2: " the other way." },
+
+      { t1: "I ",   hint: "(meet)",   t2: " Tom and Jane at the airport a few weeks ago." },
+      { t1: "They ",   hint: "(go)",   t2: " to Paris" },
+      { fix: true, t1: "and I ",   hint: "(go)",   t2: " to Rome." },
+      { t1: "We ",   hint: "(have)",   t2: " a chat " },
+      { t1: "while we ",   hint: "(wait)",   t2: " for our flights." },
+
+      { t1: "I ",   hint: "(cycle)",   t2: " home yesterday" },
+      { fix: true, t1: " when a man",   hint: "(step)",   t2: " out into the road in front of me." },
+      { t1: "I ",   hint: "(go)",   t2: " quite fast, " },
+      { fix: true, t1: "but luckily I ",   hint: "(manage)",   t2: " to stop in time " },
+      { fix: true, t1: "and ",   hint: "(not / hit)",   t2: " him." }
+      ];
+      ex.data[0].ca  = ["saw"];
+      ex.data[1].ca  = ["didn't see", "did not see"];
+      ex.data[2].ca  = ["was looking"];
+
+      ex.data[3].ca  = ["met"];
+      ex.data[4].ca  = ["were going"];
+      ex.data[5].ca  = ["was going"];
+      ex.data[6].ca  = ["had"];
+      ex.data[7].ca  = ["were waiting", "waited"];
+
+      ex.data[8].ca  = ["was cycling"];
+      ex.data[9].ca  = ["stepped"];
+      ex.data[10].ca  = ["was going"];
+      ex.data[11].ca  = ["managed"];
+      ex.data[12].ca  = ["didn't hit", "did not hit"];
+
+      ex.prepare = function() {
+        ex.q = angular.copy(ex.data);
+        // ex.q = ArrayHelper.unorderArray(ex.data);
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[4] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 4;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Put the verb into the correct form, past continuous or past simple.";
+      ex.data = [
+      { t1: "Jenny ",   hint: "(wait)",   t2: " for me " },
+      { fix: true, t1: "when I ",   hint: "(arrive)",   t2: "." },
+      { t1: "'What ",   hint: "(you / do)",   t2: " at this time yesterday?' 'I was asleep.'" },
+      { t1: "'",   hint: "(you / go)",   t2: " out last night?' 'No, I was too tired'." },
+      { t1: "How fast ",   hint: "(you / drive)",   t2: " when the accident " },
+      { fix: true, t1: "",   hint: "(happen)",   t2: "?" },
+      { t1: "Sam ",   hint: "(take)",   t2: " a picture of me " },
+      { fix: true, t1: "while I ",   hint: "(not / look)",   t2: "." },
+      { t1: "We were in a very difficult position. We ",   hint: "(not / know)",   t2: " what to do." },
+      { t1: "I haven't seen Alan for ages. When I last ",   hint: "(see)",   t2: " him, " },
+      { fix: true, t1: "he ",   hint: "(try)",   t2: " to find a job." },
+      { t1: "I ",   hint: "(walk)",   t2: " along the street " },
+      { fix: true, t1: "when suddenly I ",   hint: "(hear)",   t2: " footsteps behind me." },
+      { fix: true, t1: "Somebody ",   hint: "(follow)",   t2: " me." },
+      { fix: true, t1: "I ",   hint: "(start)",   t2: " to run." },
+      { t1: "When I was young, I ",   hint: "(want)",   t2: " to be a pilot." },
+      { t1: "Last night I ",   hint: "(drop)",   t2: " a plate " },
+      { fix: true, t1: "when I ",   hint: "(do)",   t2: " the washing-up." },
+      { fix: true, t1: "Fortunately it ",   hint: "(not / break)",   t2: "." }
+      ];
+      ex.data[0].ca  = ["was waiting"];
+      ex.data[1].ca  = ["arrived"];
+      ex.data[2].ca  = ["were you doing"];
+      ex.data[3].ca  = ["Did you go"];
+      ex.data[4].ca  = ["were you driving"];
+      ex.data[5].ca  = ["happened"];
+      ex.data[6].ca  = ["took"];
+      ex.data[7].ca  = ["wasn't looking", "was not looking"];
+      ex.data[8].ca  = ["didn't know", "did not know"];
+      ex.data[9].ca  = ["saw"];
+      ex.data[10].ca  = ["was trying"];
+      ex.data[11].ca  = ["was walking"];
+      ex.data[12].ca  = ["heard"];
+      ex.data[13].ca  = ["was following"];
+      ex.data[14].ca  = ["started"];
+      ex.data[15].ca  = ["wanted"];
+      ex.data[16].ca  = ["dropped"];
+      ex.data[17].ca  = ["was doing"];
+      ex.data[18].ca  = ["didn't break", "did not break"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+
+
 /*
 // -------------------------------------------------------------------------
 // Unit 9999

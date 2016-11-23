@@ -9,6 +9,7 @@ var ngApp = angular.module('myApp', [
   'myApp.unit3',
   'myApp.unit4',
   'myApp.unit5',
+  'myApp.unit6',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -322,7 +323,7 @@ function($rootScope, $timeout) {
   return {
     reset : function() {
       currentUnit = 1;
-      currentQuestion = 2;
+      currentQuestion = 3;
       score = {};
     },
     getCurrentUnit: function() {

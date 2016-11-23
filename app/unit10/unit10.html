@@ -1,0 +1,67 @@
+<div class="row">
+  <div class="col-xs-12">
+
+    <!-- Unit title -->
+    <div class="row">
+      <div class="col-xs-8">
+        <h3>Unit 9999 - xxxxxxxxxxxxxxxxxxxxx</h3>
+      </div>
+      <div class="col-xs-4 text-right">
+        <button class="btn btn-info glyphicon"
+            ng-class="!showInfo ? 'glyphicon-resize-small' : 'glyphicon-info-sign'"
+            ng-click="showInfo = !showInfo"></button>
+      </div>
+    </div>
+
+    <!-- Unit images -->
+    <div class="row" ng-show="!showInfo">
+      <div ng-class="!!viewImg1 ? 'col-xs-12 big-img' : 'col-xs-2'">
+        <img src="images/unit9999.a.png" class="img-thumbnail" ng-class="{'little-img': !viewImg1}" ng-click="viewImg1 = !viewImg1">
+      </div>
+      <div ng-class="!!viewImg2 ? 'col-xs-12 big-img' : 'col-xs-2'">
+        <img src="images/unit9999.b.png" class="img-thumbnail" ng-class="{'little-img': !viewImg2}" ng-click="viewImg2 = !viewImg2">
+      </div>
+      <div ng-class="!!viewImg3 ? 'col-xs-12 big-img' : 'col-xs-2'">
+        <img src="images/unit9999.c.png" class="img-thumbnail" ng-class="{'little-img': !viewImg3}" ng-click="viewImg3 = !viewImg3">
+      </div>
+      <div ng-class="!!viewImg4 ? 'col-xs-12 big-img' : 'col-xs-2'">
+        <img src="images/unit9999.d.png" class="img-thumbnail" ng-class="{'little-img': !viewImg4}" ng-click="viewImg4 = !viewImg4">
+      </div>
+    </div>
+
+
+    <!-- Exercice 9999_888 -->
+    <question-box ex="ex[888]">
+      <div class="row">
+        <p class="ex-tit">
+          <opcio word="xxxxxxx"></opcio>
+          <opcio word="xxxxxxx"></opcio>
+          <opcio word="xxxxxxx"></opcio>
+          <opcio word="xxxxxxx"></opcio>
+          <opcio word="xxxxxxx"></opcio>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            <text-q ex="ex[888]" num="0"  br></text-q>
+            <text-q ex="ex[888]" num="1"  br></text-q>
+            <text-q ex="ex[888]" num="2"  br></text-q>
+            <text-q ex="ex[888]" num="3"  br></text-q>
+            <text-q ex="ex[888]" num="4"  br></text-q>
+            <text-q ex="ex[888]" num="5"  br></text-q>
+            <text-q ex="ex[888]" num="6"  br></text-q>
+            <text-q ex="ex[888]" num="7"  br></text-q>
+            <text-q ex="ex[888]" num="8"  br></text-q>
+            <text-q ex="ex[888]" num="9"  br></text-q>
+          </p>
+        </div>
+      </div>
+    </question-box>
+
+    <!-- Exercice 9999_888 -->
+    <!-- Exercice 9999_888 -->
+    <!-- Exercice 9999_888 -->
+
+  </div>
+</div>
