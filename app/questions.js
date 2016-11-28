@@ -1201,6 +1201,195 @@ ngApp.factory('Unit6', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 
 
 
+// -------------------------------------------------------------------------
+// Unit 7
+// -------------------------------------------------------------------------
+ngApp.factory('Unit7', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 7 };
+
+    unit.ex[1] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 1;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Read the situations and write sentences. Use the following verbs in the present perfect:";
+      ex.data = [
+      { t1: "Tom is looking for his key. He can't find it.",          t2: "Tom " },
+      { t1: "Lisa can’t walk and her leg is in plaster. ",            t2: "Lisa " },
+      { t1: "Last week the bus fare was £1.80. Now it is £2 ",        t2: "The bus fare " },
+      { t1: "Maria’s English wasn't very good. Now it is better. ",   t2: "Her English " },
+      { t1: "Dan didn't have a beard before. Now he has a beard. ",   t2: "Dan " },
+      { t1: "This morning I was expecting a letter. Now I have it. ", t2: "The letter " },
+      { t1: "The temperature was 20 degrees. Now it is only 12. ",    t2: "The temperature " }
+      ];
+      ex.data[0].ca  = ["has lost his key", "'s lost his key"];
+      ex.data[1].ca  = ["has broken her leg", "'s broken her leg"];
+      ex.data[2].ca  = ["has gone up", "'s gone up"];
+      ex.data[3].ca  = ["has improved", "'s improved"];
+      ex.data[4].ca  = ["has grown a beard", "'s grown a beard"];
+      ex.data[5].ca  = ["has arrived", "'s arrived"];
+      ex.data[6].ca  = ["has fallen", "'s fallen"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[2] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 2;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Put in been or gone.";
+      ex.data = [
+      { t1: "James is on holiday. He's ",   t2: " to Italy." },
+      { t1: "Hello! I've just ",   t2: " to the shops. I've bought lots of things." },
+      { t1: "Alice isn't here at the moment. She's ",   t2: " to the shop to get a newspaper." },
+      { t1: "Tom has ",   t2: " out. He'll be back in about an hour." },
+      { t1: "'Are you going to the bank?' 'No, I've already ",   t2: " to the bank.'" }
+      ];
+      ex.data[0].ca  = ["gone"];
+      ex.data[1].ca  = ["been"];
+      ex.data[2].ca  = ["gone"];
+      ex.data[3].ca  = ["gone"];
+      ex.data[4].ca  = ["been"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[3] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 3;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Complete B's sentences. Make sentences from the words in brackets.";
+      ex.data = [
+      { t1: "Would you like something to eat? ",   hint: "(I / just / have / lunch)",   t2: "No, thanks.", t3: "." },
+      { t1: "Do you know where Julia is? ",   hint: "(I / just / see / her)",   t2: "Yes, ", t3: "." },
+      { t1: "What time is David leaving? ",   hint: "(he / already / leave)",   t2: "", t3: "." },
+      { t1: "What's in the newspaper today? ",   hint: "(I / not / read / it yet)",   t2: "I don't know.", t3: "." },
+      { t1: "Is Sue coming to the cinema with us? ",   hint: "(she / already / see / the film)",   t2: "No, ", t3: "." },
+      { t1: "Are your friends here yet? ",   hint: "(they / just / arrive)",   t2: "Yes, ", t3: "." },
+      { t1: "What does Tim think about your plan? ",   hint: "(we / not / tell / him yet)",   t2: "", t3: "." }
+      ];
+      ex.data[0].ca  = ["I've just had lunch", "I have just had lunch"];
+      ex.data[1].ca  = ["I've just seen her", "I have just seen her", "I just saw her"];
+      ex.data[2].ca  = ["He's already left", "He has already left", "He already left"];
+      ex.data[3].ca  = ["I haven't read it yet", "I have not read it yet", "I didn't read it yet", "I did not read it yet"];
+      ex.data[4].ca  = ["she's already seen the film", "No, she has already seen", "No, she already saw"];
+      ex.data[5].ca  = ["they've just arrived", "Yes, they have just arrived,", "Yes, they just arrived"];
+      ex.data[6].ca  = ["We haven't told him yet", "We have not told him yet", "We didn't tell him yet"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[4] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 4;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Read the situations and write sentences with just, already or yet.";
+      ex.data = [
+      { t1: "After lunch you go to see a friend at her house.", t2: "She says, ‘Would you like something to eat?'", t3: "You say: No thank you. ",   hint: "(have lunch)",   t4: "." },
+      { t1: "Joe goes out. Five minutes later, the phone rings and the caller says, 'Can I speak to Joe?' ", t3: "You say: I'm afraid ",   hint: "(go out)",   t4: "." },
+      { t1: "You are eating in a restaurant. The waiter thinks you have finished and starts to take your plate away.", t3: "You say: Wait a minute! ",   hint: "(not / finish)",   t4: "." },
+      { t1: "You plan to eat at a restaurant tonight. You phoned to reserve a table.", t2: "Later your friend says, 'Shall I phone to reserve a table?'", t3: "You say: No, ",   hint: "(do it)",   t4: "." },
+      { t1: "You know that a friend of yours is looking for a place to live. Perhaps she has been successful. Ask her.", t3: "You say: ",   hint: "(find)",   t4: " ?" },
+      { t1: "You are still thinking about where to go for your holiday.", t2: "A friend asks, ‘Where are you going for your holiday?'", t3: "You say: ",   hint: "(not / decide)",   t4: "." },
+      { t1: "Linda went shopping, but a few minutes ago she returned.", t2: "Somebody asks, ‘Is Linda still out shopping?'", t3: "You say: No, ",   hint: "(come back)",   t4: "." }
+      ];
+      ex.data[0].ca  = ["I've just had lunch", "I have just had lunch"];
+      ex.data[1].ca  = ["he's just gone out", "he has just gone out", "he just went out"];
+      ex.data[2].ca  = ["I haven't finished yet", "I have not finished yet", "I didn't finish yet", "I did not finish yet"];
+      ex.data[3].ca  = ["I've already done it", "I have already done it", "I already did it"];
+      ex.data[4].ca  = ["Have you found a place to live yet", "Did you find a place to live yet", "Have you found a place to live yet?", "Did you find a place to live yet?"];
+      ex.data[5].ca  = ["I haven't decided yet", "I have not decided yet", "I didn't decide yet", "I did not decide yet"];
+      ex.data[6].ca  = ["she's just come back", "she has just come back", "she just came back"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+
+
 
 /*
 // -------------------------------------------------------------------------

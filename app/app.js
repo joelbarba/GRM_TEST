@@ -10,6 +10,10 @@ var ngApp = angular.module('myApp', [
   'myApp.unit4',
   'myApp.unit5',
   'myApp.unit6',
+  'myApp.unit7',
+  'myApp.unit8',
+  'myApp.unit9',
+  'myApp.unit10',
   'myApp.version'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -163,9 +167,41 @@ ngApp.directive('textQF', [function() {
   };
 }]);
 
-
-
 ngApp.directive('textQA', [function() {
+  var varTemplate = '';
+
+  varTemplate += '<span>';
+  varTemplate += ' <span class="dial">{{ex.q[num].t1}}</span>';
+  varTemplate += ' <span ng-if="isHint" class="dial-tip">{{ex.q[num].hint}}</span>';
+  varTemplate += ' <br/>';
+  varTemplate += ' <span class="dial">';
+  varTemplate += '   <span ng-if="isTab" style="margin-left: 22px"></span>';
+  varTemplate += '   <span ng-if="!!ex.q[num].t2">{{ex.q[num].t2}}</span>';
+  varTemplate += '   <input ng-model="ex.q[num].ua" class="text-sent-line-answ"/>';
+  varTemplate += '   <span ng-if="!!ex.q[num].t3">{{ex.q[num].t3}}</span>';
+  varTemplate += ' </span>';
+  varTemplate += ' <resultat ex="{{ex.qStr}}" q="ex.q[num]"></resultat>';
+  varTemplate += ' <br ng-if="isSalt"/>';
+  varTemplate += '</span>';
+
+  return {
+    restrict : 'AE',
+    replace  : true,
+    template : varTemplate,
+    scope    : {
+      ex   : '=',
+      num  : '@'
+    },
+    link     : function($scope, element, attr) {
+
+      $scope.isSalt = (attr.hasOwnProperty('br'));
+      $scope.isTab = (attr.hasOwnProperty('tab'));
+      $scope.isHint = $scope.ex.q[$scope.num].hasOwnProperty('hint');
+    }
+  };
+}]);
+
+ngApp.directive('textQ2Col', [function() {
   var varTemplate = '';
 
   varTemplate += '<span>';
@@ -323,7 +359,7 @@ function($rootScope, $timeout) {
   return {
     reset : function() {
       currentUnit = 1;
-      currentQuestion = 3;
+      currentQuestion = 4;  /// <--------------------------------------------- QUESTION HERE
       score = {};
     },
     getCurrentUnit: function() {
