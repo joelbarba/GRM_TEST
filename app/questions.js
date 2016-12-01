@@ -1390,6 +1390,208 @@ ngApp.factory('Unit7', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 
 
 
+// -------------------------------------------------------------------------
+// Unit 8
+// -------------------------------------------------------------------------
+ngApp.factory('Unit8', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [], unitNum: 8 };
+
+    unit.ex[1] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 1;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "You ask people about things they have done. Write questions with ever.";
+      ex.data = [
+      { hint: "(ride / horse?)", t1: ""  },
+      { hint: "(be / California?)", t1: "Have "  },
+      { hint: "(run / marathon?)", t1: ""  },
+      { hint: "(speak / famous person?)", t1: ""  },
+      { hint: "(most beautiful place / visit?)", t1: "What's "  }
+      ];
+      ex.data[0].ca  = ["Have you ever ridden a horse?"];
+      ex.data[1].ca  = ["you ever been to California?"];
+      ex.data[2].ca  = ["Have you ever run a marathon?", "Have you ever run in a marathon?"];
+      ex.data[3].ca  = ["Have you ever spoken to a famous person?"];
+      ex.data[4].ca  = ["the most beautiful place you've ever visited?", "the most beautiful place you have ever visited?"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[2] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 2;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Complete B's answers. Some sentences are positive and some negative. Use these verbs:";
+      ex.data = [
+      { t1: "What's Mark's sister like? ",   t2: " I've no idea.",   t3: " her." },
+      { t1: "Is everything going well?",   t2: " Yes, we ",  t3: " any problems so far." },
+      { t1: "Are you hungry?",   t2: " Yes. I ",  t3: " much today." },
+      { t1: "Can you play chess?",   t2: " Yes, but ",  t3: "for ages." },
+      { t1: "Are you enjoying your holiday?",   t2: " Yes, it's the best holiday ",  t3: " for a long time." },
+      { t1: "What's that book like?",   t2: "I don't know.",  t3: " it." },
+      { t1: "Is Brussels an interesting place?",   t2: "I've no idea.",  t3: "there." },
+      { t1: "I hear your car broke down again yesterday.",   t2: "Yes, it's the second time ",  t3: "this month." },
+      { t1: "Do you like caviar?",   t2: "I don't know.",  t3: " it." },
+      { t1: "Mike was late for work again today.",   t2: "Again? He",  t3: " late every day this week." },
+      { t1: "Who's that woman by the door?",   t2: "I don't know.",  t3: " her before." }
+      ];
+      ex.data[0].ca  = ["I've never met", "I have never met"];
+      ex.data[1].ca  = ["haven't had", "have not had"];
+      ex.data[2].ca  = ["haven't eaten", "have not eaten"];
+      ex.data[3].ca  = ["I haven't played", "I have not played", "I haven't played it", "I have not played it"];
+      ex.data[4].ca  = ["I've had", "I have had"];
+      ex.data[5].ca  = ["I haven't read", "I have not read"];
+      ex.data[6].ca  = ["I've never been", "I have never been", "I haven't never been", "I have not been"];
+      ex.data[7].ca  = ["it's happened", "it has happened", "that's happened", "that has happened"];
+      ex.data[8].ca  = ["I've never tried", "I have never tried", "I haven't tried", "I have not tried", "I've never eaten", "I have never eaten", "I haven't eaten", "I have not eaten"];
+      ex.data[9].ca  = ["has been", "'s been"];
+      ex.data[10].ca  = ["I've never seen", "I have never seen", "I haven't seen", "I have not seen"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[3] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 3;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Write four sentences about yourself. Use \"I haven't\" and choose from the boxes.";
+      ex.data = [
+      { t1: "" },
+      { t1: "" },
+      { t1: "" },
+      { t1: "" },
+      { t1: "" }
+      ];
+      ex.data[0].ca  = ["Free response"];
+      ex.data[1].ca  = ["Free response"];
+      ex.data[2].ca  = ["Free response"];
+      ex.data[3].ca  = ["Free response"];
+      ex.data[4].ca  = ["Free response"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = function() {
+        ex.q.forEach(function(q) {
+          q.correct = true;
+        });
+        ex.showCorr = true;
+        $rootScope.$emit('show_question_result', ex.qStr, ex.showCorr);
+        Teacher.setScore(ex);
+      };
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex[4] = (function() {
+      var ex = {};
+      ex.unit = unit.unitNum;
+      ex.qNum = 4;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ';
+      ex.title += "Read the situations and write sentences as shown in the example.";
+      ex.data = [
+      { t1: "Jack is driving a car, but he’s very nervous and not sure what to do.",  t2: "You ask:" },
+      { fix: true, t2: " He says:" },
+
+      { t1: "Ben is playing tennis. He's not good at it and he doesn't know the rules. ", t2: "You ask: Have" },
+      { fix: true, t2: " He says: No, this is the first " },
+
+      { t1: "Sue is riding a horse. She doesn't look very confident or comfortable. ", t2: "You ask:" },
+      { fix: true, t2: " He says:" },
+
+      { t1: "Maria is in Japan. She has just arrived and it's very new for her.", t2: "You ask:" },
+      { fix: true, t2: " He says:" }
+      ];
+      ex.data[0].ca  = ["Have you driven a car before?"];
+      ex.data[1].ca  = ["No, this is the first time I've driven a car", "No, this is the first time I have driven a car"];
+      ex.data[2].ca  = ["you played tennis before?"];
+      ex.data[3].ca  = ["time I've played tennis", "time I have played tennis"];
+      ex.data[4].ca  = ["Have you ridden a horse before?", "Have you been on a horse before?"];
+      ex.data[5].ca  = ["No, this is the first time I've ridden a horse", "No, this is the first time I've been on a horse", "No, this is the first time I have ridden a horse", "No, this is the first time I have been on a horse"];
+      ex.data[6].ca  = ["Have you been to Japan before?"];
+      ex.data[7].ca  = ["No, this is the first time I've been to Japan", "No, this is the first time I have been to Japan"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+
 
 /*
 // -------------------------------------------------------------------------

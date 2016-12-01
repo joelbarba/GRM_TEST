@@ -103,3 +103,7 @@ input.text-sent-line-answ {
   margin-top: 1px;
   margin-bottom: 12px;
 }
+
+.compact-row {
+  margin-top : -15px;
+}

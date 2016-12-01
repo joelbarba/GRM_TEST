@@ -4,7 +4,7 @@
     <!-- Unit title -->
     <div class="row">
       <div class="col-xs-8">
-        <h3>Unit 9999 - xxxxxxxxxxxxxxxxxxxxx</h3>
+        <h3>Unit 8 - Present perfect 2 (I have done)</h3>
       </div>
       <div class="col-xs-4 text-right">
         <button class="btn btn-info glyphicon"
@@ -16,52 +16,119 @@
     <!-- Unit images -->
     <div class="row" ng-show="!showInfo">
       <div ng-class="!!viewImg1 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="images/unit9999.a.png" class="img-thumbnail" ng-class="{'little-img': !viewImg1}" ng-click="viewImg1 = !viewImg1">
+        <img src="images/unit8.a.png" class="img-thumbnail" ng-class="{'little-img': !viewImg1}" ng-click="viewImg1 = !viewImg1">
       </div>
       <div ng-class="!!viewImg2 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="images/unit9999.b.png" class="img-thumbnail" ng-class="{'little-img': !viewImg2}" ng-click="viewImg2 = !viewImg2">
+        <img src="images/unit8.b.png" class="img-thumbnail" ng-class="{'little-img': !viewImg2}" ng-click="viewImg2 = !viewImg2">
       </div>
       <div ng-class="!!viewImg3 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="images/unit9999.c.png" class="img-thumbnail" ng-class="{'little-img': !viewImg3}" ng-click="viewImg3 = !viewImg3">
-      </div>
-      <div ng-class="!!viewImg4 ? 'col-xs-12 big-img' : 'col-xs-2'">
-        <img src="images/unit9999.d.png" class="img-thumbnail" ng-class="{'little-img': !viewImg4}" ng-click="viewImg4 = !viewImg4">
+        <img src="images/unit8.c.png" class="img-thumbnail" ng-class="{'little-img': !viewImg3}" ng-click="viewImg3 = !viewImg3">
       </div>
     </div>
 
 
-    <!-- Exercice 9999_888 -->
-    <question-box ex="ex[888]">
-      <div class="row">
-        <p class="ex-tit">
-          <opcio word="xxxxxxx"></opcio>
-          <opcio word="xxxxxxx"></opcio>
-          <opcio word="xxxxxxx"></opcio>
-          <opcio word="xxxxxxx"></opcio>
-          <opcio word="xxxxxxx"></opcio>
-        </p>
-      </div>
+    <!-- Exercice 8_888 -->
+    <question-box ex="ex[1]">
       <div class="row">
         <div class="col-xs-12">
           <p>
-            <text-q ex="ex[888]" num="0"  br></text-q>
-            <text-q ex="ex[888]" num="1"  br></text-q>
-            <text-q ex="ex[888]" num="2"  br></text-q>
-            <text-q ex="ex[888]" num="3"  br></text-q>
-            <text-q ex="ex[888]" num="4"  br></text-q>
-            <text-q ex="ex[888]" num="5"  br></text-q>
-            <text-q ex="ex[888]" num="6"  br></text-q>
-            <text-q ex="ex[888]" num="7"  br></text-q>
-            <text-q ex="ex[888]" num="8"  br></text-q>
-            <text-q ex="ex[888]" num="9"  br></text-q>
+            <text-q ex="ex[1]" num="0" width="400" br></text-q>
+            <text-q ex="ex[1]" num="1" width="400" br></text-q>
+            <text-q ex="ex[1]" num="2" width="400" br></text-q>
+            <text-q ex="ex[1]" num="3" width="400" br></text-q>
+            <text-q ex="ex[1]" num="4" width="400" br></text-q>
           </p>
         </div>
       </div>
     </question-box>
 
-    <!-- Exercice 9999_888 -->
-    <!-- Exercice 9999_888 -->
-    <!-- Exercice 9999_888 -->
+    <!-- Exercice 8_2 -->
+    <question-box ex="ex[2]">
+      <div class="row">
+        <p class="ex-tit">
+          <opcio word="be"></opcio>
+          <opcio word="be"></opcio>
+          <opcio word="eat"></opcio>
+          <opcio word="happen"></opcio>
+          <opcio word="have"></opcio>
+          <opcio word="have"></opcio>
+          <opcio word="meet"></opcio>
+          <opcio word="play"></opcio>
+          <opcio word="read"></opcio>
+          <opcio word="see"></opcio>
+          <opcio word="try"></opcio>
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row" ng-repeat="q in ex[2].q">
+            <div class="col-xs-4">
+              <span class="dial">{{q.t1}}</span>
+            </div>
+            <div class="col-xs-8">
+              <span class="dial">
+                <span ng-if="!!q.t2">{{q.t2}}</span>
+                <input ng-model="q.ua" style="width: 250px"/>
+                <span ng-if="!!q.t3">{{q.t3}}</span>
+                <span ng-if="!!q.hint" class="dial-tip">{{q.hint}}</span>
+              </span>
+              <resultat ex="{{ex[2].qStr}}" q="q"></resultat>
+            </div>
+          </div>
+        </div>
+      </div>
+    </question-box>
+
+    <!-- Exercice 8_3 -->
+    <question-box ex="ex[3]">
+      <div class="row">
+        <div class="col-xs-6">
+          <p>
+            <text-q ex="ex[3]" num="0"  width="550" br></text-q>
+            <text-q ex="ex[3]" num="1"  width="550" br></text-q>
+            <text-q ex="ex[3]" num="2"  width="550" br></text-q>
+            <text-q ex="ex[3]" num="3"  width="550" br></text-q>
+            <text-q ex="ex[3]" num="4"  width="550" br></text-q>
+          </p>
+        </div>
+        <div class="col-xs-3">
+          <div class="row"><div class="col-xs-12"><opcio word="used a computer"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="travelled by bus"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="eaten any fruit"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="been to the cinema"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="read a book"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="lost anything"></opcio></div></div>
+        </div>
+        <div class="col-xs-3">
+          <div class="row"><div class="col-xs-12"><opcio word="today"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="this week"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="recently"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="for ages"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="since"></opcio></div></div>
+          <div class="row"><div class="col-xs-12"><opcio word="this year"></opcio></div></div>
+        </div>
+      </div>
+    </question-box>
+
+    <!-- Exercice 8_4 -->
+    <question-box ex="ex[4]">
+      <div class="row">
+        <div class="col-xs-12">
+
+          <div class="row margin-bottom: 0px" ng-repeat="q in ex[4].q">
+            <div class="col-xs-12">
+              <p ng-if="!!q.t1"><span class="dial">{{q.t1}}</span></p>
+              <p ng-class="q.fix ? 'compact-row':''">
+                <span style="margin-left: 30px;" class="dial">{{q.t2}}</span>
+                <input ng-model="q.ua" style="width: 450px"/>
+                <resultat ex="{{ex[4].qStr}}" q="q"></resultat>
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </question-box>
 
   </div>
 </div>
