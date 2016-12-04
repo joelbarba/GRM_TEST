@@ -33,7 +33,6 @@ ngApp.directive('test1', ['$rootScope', function($rootScope) {
       scope    : {
       },
       link     : function($scope, element, attr) {
-
       }
     };
 }]);
@@ -45,7 +44,10 @@ ngApp.directive('resultat', ['$rootScope', function($rootScope) {
   varTemplate += '    <span ng-show="correct"  class="glyphicon glyphicon-ok"></span>';
   varTemplate += '    <span ng-show="!correct" class="glyphicon glyphicon-remove"></span>';
   varTemplate += '  </span>';
-  varTemplate += '  <span ng-show="showAnsw" class="answ">{{q.ca}}</span>';
+  varTemplate += '  <span ng-if="!!pos">';
+  varTemplate += '    <span ng-show="showAnsw" style="position: absolute; left: {{p[0]}}px; top: {{p[1]}}px;" class="answ">{{q.ca}}</span>';
+  varTemplate += '  </span>';
+  varTemplate += '  <span ng-if="!pos" ng-show="showAnsw" class="answ">{{q.ca}}</span>';
   varTemplate += '</span>';
 
   return {
@@ -53,29 +55,39 @@ ngApp.directive('resultat', ['$rootScope', function($rootScope) {
     replace  : true,
     template : varTemplate,
     scope    : {
-      ex : '@',
-      q  : '='
+      ex  : '@',
+      q   : '=',
+      pos : '@'
     },
-    link     : function($scope, element, attr) {
+    link     : {
+      pre: function($scope, element, attr) {
 
-      $scope.showCorr = false;
-      $scope.showAnsw = false;
+        $scope.showCorr = false;
+        $scope.showAnsw = false;
 
-      // Listen the event to show the result
-      $rootScope.$on('show_question_result', function(event, ex, resp) {
-        // console.log('show_question_result', ex, resp);
-        if (ex === $scope.ex) {
-          $scope.showCorr = resp;
-          $scope.correct  = !!$scope.q.correct;
+        // Listen the event to show the result
+        $rootScope.$on('show_question_result', function(event, ex, resp) {
+          // console.log('show_question_result', ex, resp);
+          if (ex === $scope.ex) {
+            $scope.showCorr = resp;
+            $scope.correct  = !!$scope.q.correct;
+          }
+        });
+
+        // Listen the event to show the correct answer
+        $rootScope.$on('show_question_answer', function(event, ex, resp) {
+          if (ex === $scope.ex) {
+            $scope.showAnsw = resp;
+          }
+        });
+      },
+      post: function($scope) {
+
+        // position values
+        if (!!$scope.pos) {
+          $scope.p = $scope.pos.split(',');
         }
-      });
-
-      // Listen the event to show the correct answer
-      $rootScope.$on('show_question_answer', function(event, ex, resp) {
-        if (ex === $scope.ex) {
-          $scope.showAnsw = resp;
-        }
-      });
+      }
     }
   };
 }]);
@@ -106,6 +118,43 @@ ngApp.directive('opcio', [function() {
     }
   };
 }]);
+
+ngApp.directive('textQList', [function() {
+  var varTemplate = '';
+
+  varTemplate += '<div class="col-xs-12">';
+  varTemplate += '  <div class="row margin-bottom: 0px" ng-repeat="q in ex.q">';
+  varTemplate += '    <div class="col-xs-12">';
+  varTemplate += '      <p ng-if="!!q.t0"><span class="dial">{{q.t0}}</span></p>';
+  varTemplate += '      <p ng-class="q.fix ? \'compact-row\':\'\'">';
+  varTemplate += '        <span style="margin-left: 30px;"></span>';
+  varTemplate += '        <span ng-if="!!q.t1" class="dial">{{q.t1}}</span>';
+  varTemplate += '        <span ng-if="!!q.hint" class="dial-tip">{{q.hint}}</span>';
+  varTemplate += '        <input ng-model="q.ua" style="width: {{inputWidth}}px;"/>';
+  varTemplate += '        <span ng-if="!!q.t2" class="dial">{{q.t2}}</span>';
+  varTemplate += '        <resultat ex="{{ex.qStr}}" q="q"></resultat>';
+  varTemplate += '      </p>';
+  varTemplate += '    </div>';
+  varTemplate += '  </div>';
+  varTemplate += '</div>';
+
+  return {
+    restrict : 'AE',
+    replace  : true,
+    template : varTemplate,
+    scope    : {
+      ex   : '=',
+      width : '@'
+    },
+    link     : function($scope, element, attr) {
+      $scope.inputWidth = '180';
+      if (!!$scope.width) {
+        $scope.inputWidth = $scope.width;
+      }
+    }
+  };
+}]);
+
 
 ngApp.directive('textQ', [function() {
   var varTemplate = '';
@@ -144,7 +193,7 @@ ngApp.directive('textQF', [function() {
   varTemplate += '<span>';
   varTemplate += '  <input ng-model="ex.q[num].ua" style="position: absolute; left: {{p[0]}}px; top: {{p[1]}}px; width: {{p[2]}}px;" class="text-inline-answ"/>';
   varTemplate += '  <span style="position: absolute; left: {{p[3]}}px; top: {{p[4]}}px;">';
-  varTemplate += '    <resultat ex="{{ex.qStr}}" q="ex.q[num]"></resultat>';
+  varTemplate += '    <resultat ex="{{ex.qStr}}" q="ex.q[num]" pos="{{aswPos}}"></resultat>';
   varTemplate += '  </span>';
   varTemplate += '</span>';
 
@@ -157,11 +206,18 @@ ngApp.directive('textQF', [function() {
       num  : '@',
       pos  : '@'
     },
-    link: function($scope) {
-      $scope.p = $scope.pos.split(',');
-      if ($scope.p.length < 4) {
-        $scope.p[3] = parseInt($scope.p[0]) + parseInt($scope.p[2]) + 4;
-        $scope.p[4] = parseInt($scope.p[1]) + 5;
+    link: {
+      pre: function($scope) {
+        $scope.p = $scope.pos.split(',');
+        if ($scope.p.length < 4 || $scope.p[3] === 'x' || $scope.p[4] === 'x') {
+          $scope.p[3] = parseInt($scope.p[0]) + parseInt($scope.p[2]) + 4;
+          $scope.p[4] = parseInt($scope.p[1]) + 5;
+        }
+        if ($scope.p.length > 6) {
+          $scope.aswPos = $scope.p[5] + ',' + $scope.p[6];
+        }
+      },
+      post: function($scope) {
       }
     }
   };
@@ -339,7 +395,11 @@ ngApp.factory('ArrayHelper', [function() {
       var num = 1;
       outArr.forEach(function(q) {
         if (!q.hasOwnProperty('fix')) {
-          q.t1 = num + ". " + q.t1;
+          if (q.hasOwnProperty('t0')) {
+            q.t0 = num + ". " + q.t0;
+          } else {
+            q.t1 = num + ". " + q.t1;
+          }
           num++;
         }
       });

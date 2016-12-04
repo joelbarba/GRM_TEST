@@ -1593,6 +1593,175 @@ ngApp.factory('Unit8', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 
 
 
+// -------------------------------------------------------------------------
+// Unit 9999
+// -------------------------------------------------------------------------
+ngApp.factory('Unit9', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
+  function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
+
+    var unit = { ex: [{}], unitNum: 9 };
+
+    unit.ex.push(function() {
+      var ex = {};
+      ex.title = "What have these people been doing or what has been happening?";
+      ex.data = [
+      {},
+      {},
+      {},
+      {}
+      ];
+      ex.data[0].ca  = ["have been shopping", "'ve been shopping"];
+      ex.data[1].ca  = ["has been watching tv", "'s been watching tv"];
+      ex.data[2].ca  = ["have been playing tennis", "'ve been playing tennis"];
+      ex.data[3].ca  = ["has been running", "'s been running"];
+
+      ex.prepare = function() {
+        ex.q = angular.copy(ex.data);
+        // ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex.push(function() {
+      var ex = {};
+      ex.title = "Write a question for each situation.";
+      ex.data = [
+      { t0: "You meet Paul as he is leaving the swimming pool. ",  t1: "You ask:", hint: "(you / swim?)", t2: " ?"},
+      { t0: "You have just arrived to meet a friend who is waiting for you.", t1: "You ask:", hint: "(you / wait / long?)", t2: " ?" },
+      { t0: "You meet a friend in the street. His face and hands are very dirty.", t1: "You ask:", hint: "(what / you / do?)", t2: " ?" },
+      { t0: "A friend of yours is now working in a shop. You want to know how long.", t1: "You ask:", hint: "(how long / you / work / there?)", t2: " ?" },
+      { t0: "A friend tells you about his job - he sells mobile phones. You want to know how long.", t1: "You ask:", hint: "(how long / you / sell / mobile phones?)", t2: " ?" }
+      ];
+      ex.data[0].ca  = ["Have you been swimming"];
+      ex.data[1].ca  = ["Have you been waiting long"];
+      ex.data[2].ca  = ["What have you been doing"];
+      ex.data[3].ca  = ["How long have you been working there"];
+      ex.data[4].ca  = ["How long have you been selling mobile phones"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex.push(function() {
+      var ex = {};
+      ex.title = "Read the situations and complete the sentences.";
+      ex.data = [
+      { t0: "It's raining. The rain started two hours ago.", t1: "It ", t2: " for two hours." },
+      { t0: "We are waiting for the bus. We started waiting 20 minutes ago.", t1: "We ", t2: " for 20 minutes." },
+      { t0: "I'm learning Spanish. I started classes in December.", t1: "I", t2: " since December." },
+      { t0: "Jessica is working in a supermarket. She started working there on 18 January.", t1: "", t2: " since 18 January." },
+      { t0: "Our friends always spend their holidays in Italy. They started going there years ago.", t1: "", t2: " for years." }
+      ];
+      ex.data[0].ca  = ["is been raining", "'s been raining"];
+      ex.data[1].ca  = ["have been waiting", "'ve been waiting"];
+      ex.data[2].ca  = ["have been learning Spanish", "'ve been learning Spanish"];
+      ex.data[3].ca  = ["She has been working there", "She's been working there"];
+      ex.data[4].ca  = ["They have been going there", "They've been going there"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+    unit.ex.push(function() {
+      var ex = {};
+      ex.title = "Put the verb into the present continuous (I am -ing) or present perfect continuous (I have been -ing).";
+      ex.data = [
+      { t1: "",   hint: "(Maria / learn)",   t2: " English for two years." },
+      { t1: "Hello, Tom. ",   hint: "(I / look)",   t2: " for you. Where have you been?" },
+      { t1: "Why ",   hint: "(you / look)",   t2: " at me like that? Stop it!" },
+      { t1: "Linda is a teacher. ",   hint: "(she / teach)",   t2: " for ten years." },
+      { t1: "",   hint: "(I / think)",   t2: " about what you said and I've decided to take your advice." },
+      { t1: "‘Is Paul on holiday this week?' ‘No, ",   hint: "(he/work)",   t2: " .'" },
+      { t1: "Sarah is very tired. ",   hint: "(she / work)",   t2: " very hard recently." }
+      ];
+      ex.data[0].ca  = ["Maria has been learning", "Maria's been learning"];
+      ex.data[1].ca  = ["I have been looking", "I've been looking"];
+      ex.data[2].ca  = ["are you looking"];
+      ex.data[3].ca  = ["She has been teaching", "She's been teaching"];
+      ex.data[4].ca  = ["I have been thinking", "I've been thinking"];
+      ex.data[5].ca  = ["he's working", "he is working"];
+      ex.data[6].ca  = ["She has been working", "She's been working"];
+
+      ex.prepare = function() {
+        // ex.q = angular.copy(ex.data);
+        ex.q = ArrayHelper.setQNum(ArrayHelper.unorderArray(ex.data));
+        ex.showCorr = false;
+        ex.showAnsw = false;
+        $rootScope.$emit('show_question_result', ex.qStr, false);
+        ex.q.forEach(function(q) {
+          delete q.correct;
+        });
+      };
+      ex.correct = CorrectExFactory;
+      ex.answer = AnswerExFactory;
+      ex.getLastScore = function() { return Teacher.getLastScore(ex.unit, ex.qNum); };
+      ex.getAtempts = function() { return Teacher.getAtempts(ex.unit, ex.qNum); };
+      ex.prepare();
+      return ex;
+    }());
+
+
+    unit.ex.forEach(function(ex, num) {
+      ex.qNum = num;
+      ex.unit = unit.unitNum;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ' + ex.title;
+    });
+
+    unit.refreshPage = function() {
+      unit.ex.forEach(function(ex, num) {
+        ex.isExpanded = (num === Teacher.getCurrentQuestion());
+      });
+    };
+    $rootScope.$on('refresh_page', unit.refreshPage);
+
+    Teacher.iniScore(unit);
+
+    return unit;
+}]);
+
+
+
+
 /*
 // -------------------------------------------------------------------------
 // Unit 9999
@@ -1600,15 +1769,11 @@ ngApp.factory('Unit8', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Answer
 ngApp.factory('Unit9999', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'AnswerExFactory', 'Teacher',
   function($rootScope, ArrayHelper, CorrectExFactory, AnswerExFactory, Teacher) {
 
-    var unit = { ex: [], unitNum: 9999 };
+    var unit = { ex: [{}], unitNum: 9999 };
 
-    unit.ex[888] = (function() {
+    unit.ex.push(function() {
       var ex = {};
-      ex.unit = unit.unitNum;
-      ex.qNum = 888;
-      ex.qStr = ex.unit + '_' + ex.qNum;
-      ex.title = ex.unit + '.' + ex.qNum + ' ';
-      ex.title += "xxxxxxxxxxxxxxxxx.";
+      ex.title = "xxxxxxxxxxxxxxxxx.";
       ex.data = [
       { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
       { t1: "xxxxxxxxxxx ",   hint: "xxxxxxxx",   t2: " xxxxxxxxxx." },
@@ -1650,10 +1815,15 @@ ngApp.factory('Unit9999', ['$rootScope', 'ArrayHelper', 'CorrectExFactory', 'Ans
       return ex;
     }());
 
-    unit.ex[888] = (function() {}());
-    unit.ex[888] = (function() {}());
-    unit.ex[888] = (function() {}());
-    unit.ex[888] = (function() {}());
+
+
+
+    unit.ex.forEach(function(ex, num) {
+      ex.qNum = num;
+      ex.unit = unit.unitNum;
+      ex.qStr = ex.unit + '_' + ex.qNum;
+      ex.title = ex.unit + '.' + ex.qNum + ' ' + ex.title;
+    });
 
     unit.refreshPage = function() {
       unit.ex.forEach(function(ex, num) {
